@@ -35,6 +35,10 @@ primerkakoles/
 - Поддерживать семантическую разметку HTML5
 - Минимальный, чистый дизайн без лишних зависимостей
 
+## Pull Requests
+
+When creating PRs, enable auto-merge.
+
 ## Деплой
 
 GitHub Pages автоматически публикует `index.html` из корня ветки `main`.
