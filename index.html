@@ -6,277 +6,409 @@
   <title>Примерка Колёс — примерь диски на своё авто</title>
   <meta name="description" content="Загрузи фото автомобиля и примерь любые диски с помощью ИИ. Быстро, просто, в Telegram.">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --accent: #2563eb;
-      --accent-dark: #1d4ed8;
-      --text: #111827;
+      --dark: #16192a;
       --muted: #6b7280;
       --bg: #ffffff;
-      --bg-alt: #f3f4f6;
-      --radius: 12px;
+      --radius-card: 20px;
+
+      /* multicolor letters */
+      --c1: #e8634a;
+      --c2: #d4952a;
+      --c3: #8daa35;
+      --c4: #4aab8a;
+      --c5: #3a9fca;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      color: var(--text);
+      color: var(--dark);
       background: var(--bg);
-      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    /* ── HEADER ─────────────────────────────────── */
+    /* ── HEADER ──────────────────────────────────────── */
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid #e5e7eb;
+      padding: 1.1rem 2.5rem;
       position: sticky;
       top: 0;
-      background: var(--bg);
-      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 200;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
     }
 
     .logo {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--dark);
       text-decoration: none;
+      letter-spacing: -0.01em;
     }
 
-    .logo span {
-      color: var(--accent);
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--c1), var(--c5));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
-    header a.btn-tg {
-      font-size: 0.9rem;
-    }
+    .logo-icon svg { width: 18px; height: 18px; fill: #fff; }
 
-    /* ── BUTTONS ─────────────────────────────────── */
-    .btn {
+    .btn-cta {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius);
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.1s;
-      border: none;
-    }
-
-    .btn:active {
-      transform: scale(0.97);
-    }
-
-    .btn-primary {
-      background: var(--accent);
+      gap: 0.45rem;
+      padding: 0.6rem 1.35rem;
+      background: var(--dark);
       color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-dark);
-    }
-
-    .btn-primary-lg {
-      padding: 1rem 2rem;
-      font-size: 1.125rem;
-      border-radius: 14px;
-    }
-
-    /* ── HERO ────────────────────────────────────── */
-    .hero {
-      text-align: center;
-      padding: 4rem 1.5rem 3rem;
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      background: #dbeafe;
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 0.3rem 0.9rem;
       border-radius: 100px;
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.02em;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.15s;
     }
 
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
+    .btn-cta:hover { opacity: 0.85; }
+    .btn-cta:active { transform: scale(0.96); }
+
+    .btn-cta svg { width: 1em; height: 1em; fill: currentColor; flex-shrink: 0; }
+
+    .btn-cta-arrow { font-size: 1em; line-height: 1; }
+
+    /* ── HERO WRAPPER ────────────────────────────────── */
+    .hero-wrap {
+      position: relative;
+      text-align: center;
+      padding-top: 3.5rem;
+      overflow: hidden;
     }
 
-    .hero h1 em {
-      font-style: normal;
-      color: var(--accent);
+    /* ghost background text */
+    .ghost-text {
+      position: absolute;
+      top: -0.1em;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: clamp(5rem, 14vw, 12rem);
+      font-weight: 900;
+      color: #f0f0f0;
+      letter-spacing: -0.03em;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1;
+      z-index: 0;
     }
 
-    .hero p {
-      font-size: 1.125rem;
+    /* decorative dots */
+    .dot {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .dot-1 { width: 10px; height: 10px; background: var(--c1); top: 14%;  left: 18%; }
+    .dot-2 { width:  7px; height:  7px; background: #f5d748; top: 38%;  left: 28%; }
+    .dot-3 { width:  9px; height:  9px; background: var(--c5); top: 26%;  right: 22%; }
+    .dot-4 { width:  6px; height:  6px; background: var(--c3); top: 58%;  right: 30%; }
+    .dot-5 { width:  8px; height:  8px; background: var(--c4); top: 48%;  left: 8%;  }
+
+    /* hero content */
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 2rem;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-bottom: 1.1rem;
     }
 
-    .hero-cta {
+    .hero-h1 {
+      font-size: clamp(2.6rem, 6.5vw, 5rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.3em;
+    }
+
+    /* colored-letter row */
+    .color-row {
+      display: inline-block;
+    }
+
+    .color-row .l1 { color: var(--c1); }
+    .color-row .l2 { color: var(--c2); }
+    .color-row .l3 { color: var(--c3); }
+    .color-row .l4 { color: var(--c4); }
+    .color-row .l5 { color: var(--c5); }
+    .color-row .lk { color: var(--dark); }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: var(--dark);
+      margin: 1.2rem auto 2rem;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+
+    .hero-sub .faded {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── GALLERY ─────────────────────────────────────── */
+    .gallery {
+      position: relative;
+      margin-top: 3rem;
+      width: 100%;
+      /* bottom wave tint */
+    }
+
+    .gallery-inner {
       display: flex;
-      flex-direction: column;
+      align-items: flex-end;
+      gap: 14px;
+      padding: 0 2vw;
+      overflow: hidden;
+    }
+
+    .gallery-card {
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #e8edf2;
+      position: relative;
+    }
+
+    /* partial edge cards */
+    .gallery-card.edge { flex-shrink: 0; }
+
+    .gallery-card img,
+    .gallery-card .placeholder {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* placeholder SVG fill */
+    .placeholder {
+      display: flex;
       align-items: center;
-      gap: 0.75rem;
+      justify-content: center;
     }
 
-    .hero-note {
-      font-size: 0.85rem;
-      color: var(--muted);
+    /* card sizes — 5-column layout like reference */
+    .gc-edge-l {
+      width: clamp(80px, 10vw, 140px);
+      height: clamp(160px, 22vw, 300px);
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
 
-    /* ── HOW IT WORKS ────────────────────────────── */
+    .gc-sm {
+      width: clamp(130px, 16vw, 220px);
+      height: clamp(180px, 24vw, 340px);
+    }
+
+    .gc-lg {
+      flex: 1;
+      min-width: clamp(200px, 26vw, 380px);
+      height: clamp(260px, 36vw, 520px);
+    }
+
+    .gc-edge-r {
+      width: clamp(80px, 10vw, 140px);
+      height: clamp(160px, 22vw, 300px);
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    /* placeholder colors & icons */
+    .ph-1 { background: linear-gradient(150deg, #c8d6e0, #a0b8c8); }
+    .ph-2 { background: linear-gradient(150deg, #2a3a5c, #1a2540); }
+    .ph-3 { background: linear-gradient(150deg, #3d5a80, #1b2e4a); }
+    .ph-4 { background: linear-gradient(150deg, #e8c97a, #c8a440); }
+    .ph-5 { background: linear-gradient(150deg, #f0e8d8, #d8c8b0); }
+
+    .ph-label {
+      position: absolute;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      background: rgba(0,0,0,0.25);
+      padding: 0.3rem 0.7rem;
+      border-radius: 100px;
+    }
+
+    .ph-label.dark { color: rgba(0,0,0,0.45); background: rgba(0,0,0,0.08); }
+
+    .wheel-icon {
+      opacity: 0.18;
+    }
+
+    /* teal wave below gallery */
+    .gallery-wave {
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(45,191,160,0.12), rgba(45,191,160,0));
+      margin-top: -20px;
+    }
+
+    /* ── HOW IT WORKS ────────────────────────────────── */
     .how {
-      background: var(--bg-alt);
-      padding: 4rem 1.5rem;
-    }
-
-    .how-inner {
-      max-width: 900px;
+      padding: 5rem 2rem;
+      max-width: 960px;
       margin: 0 auto;
     }
 
-    .section-label {
+    .section-eyebrow {
       text-align: center;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
     }
 
-    .section-title {
+    .section-h2 {
       text-align: center;
-      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-      font-weight: 800;
-      margin-bottom: 3rem;
-      letter-spacing: -0.01em;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 3.5rem;
     }
 
     .steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
     }
 
     .step {
-      background: var(--bg);
-      border-radius: var(--radius);
-      padding: 2rem 1.5rem;
-      position: relative;
+      background: #f7f8fa;
+      border-radius: 18px;
+      padding: 2rem 1.75rem;
     }
 
-    .step-number {
-      width: 2.5rem;
-      height: 2.5rem;
+    .step-num {
+      width: 2.4rem;
+      height: 2.4rem;
       border-radius: 50%;
-      background: var(--accent);
+      background: var(--dark);
       color: #fff;
-      font-weight: 700;
-      font-size: 1rem;
+      font-weight: 800;
+      font-size: 0.95rem;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
     }
 
-    .step-icon {
-      font-size: 2rem;
-      margin-bottom: 0.75rem;
-    }
+    .step-emoji { font-size: 1.8rem; margin-bottom: 0.6rem; }
 
     .step h3 {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.45rem;
     }
 
-    .step p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+    .step p { color: var(--muted); font-size: 0.93rem; line-height: 1.55; }
 
-    /* ── CTA SECTION ─────────────────────────────── */
+    /* ── CTA BOTTOM ──────────────────────────────────── */
     .cta-section {
-      padding: 5rem 1.5rem;
       text-align: center;
+      padding: 4rem 1.5rem 5rem;
       max-width: 600px;
       margin: 0 auto;
     }
 
     .cta-section h2 {
-      font-size: clamp(1.75rem, 4vw, 2.5rem);
-      font-weight: 800;
-      margin-bottom: 1rem;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 900;
       letter-spacing: -0.02em;
+      margin-bottom: 0.9rem;
     }
 
     .cta-section p {
       color: var(--muted);
       font-size: 1.05rem;
       margin-bottom: 2rem;
+      line-height: 1.6;
     }
 
-    /* ── FOOTER ──────────────────────────────────── */
-    footer {
-      border-top: 1px solid #e5e7eb;
-      padding: 1.5rem;
-      text-align: center;
-      font-size: 0.85rem;
+    .btn-cta-lg {
+      padding: 0.9rem 2rem;
+      font-size: 1.05rem;
+    }
+
+    .hero-note {
+      display: block;
+      margin-top: 0.9rem;
+      font-size: 0.82rem;
       color: var(--muted);
     }
 
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      border-top: 1px solid #eaecf0;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      font-size: 0.83rem;
+      color: var(--muted);
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a { color: inherit; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
-    /* ── TELEGRAM ICON ───────────────────────────── */
-    .tg-icon {
-      width: 1.2em;
-      height: 1.2em;
-      fill: currentColor;
-      flex-shrink: 0;
-    }
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 600px) {
+      header { padding: 0.9rem 1.25rem; }
 
-    /* ── RESPONSIVE ──────────────────────────────── */
-    @media (max-width: 480px) {
-      header a.btn-tg {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
+      .ghost-text { font-size: clamp(3.5rem, 22vw, 6rem); }
+
+      .gallery-inner { gap: 8px; padding: 0 0; }
+
+      .gc-edge-l, .gc-edge-r { display: none; }
+
+      .gc-sm {
+        width: clamp(100px, 28vw, 160px);
+        height: clamp(140px, 38vw, 200px);
       }
 
-      .hero {
-        padding: 2.5rem 1.25rem 2rem;
+      .gc-lg {
+        height: clamp(200px, 55vw, 300px);
       }
     }
   </style>
@@ -285,83 +417,220 @@
 
   <!-- HEADER -->
   <header>
-    <a href="#" class="logo">Примерка<span>Колёс</span></a>
-    <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary btn-tg" target="_blank" rel="noopener">
-      <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-      </svg>
-      Открыть бота
+    <a href="#" class="logo" aria-label="Примерка Колёс">
+      <span class="logo-icon" aria-hidden="true">
+        <!-- wheel icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#fff" stroke-width="2" fill="none"/>
+          <circle cx="12" cy="12" r="3" fill="#fff"/>
+          <line x1="12" y1="2"  x2="12" y2="9"  stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="12" y1="15" x2="12" y2="22" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="2"  y1="12" x2="9"  y2="12" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="15" y1="12" x2="22" y2="12" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="4.93" y1="4.93"  x2="9.76" y2="9.76"  stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="14.24" y1="14.24" x2="19.07" y2="19.07" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="19.07" y1="4.93"  x2="14.24" y2="9.76"  stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="9.76"  y1="14.24" x2="4.93"  y2="19.07" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </span>
+      ПримеркаКолёс
+    </a>
+    <a href="https://t.me/Primerkakoles_bot" class="btn-cta" target="_blank" rel="noopener">
+      Открыть бота <span class="btn-cta-arrow">→</span>
     </a>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero-badge">Работает в Telegram</div>
-    <h1>Примерь <em>любые диски</em> на своё авто</h1>
-    <p>
-      Загрузи фото автомобиля — ИИ покажет, как будут смотреться новые колёса,
-      прежде чем ты потратишь деньги на покупку.
-    </p>
-    <div class="hero-cta">
-      <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary btn-primary-lg" target="_blank" rel="noopener">
-        <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <section class="hero-wrap">
+    <!-- ghost background lettering -->
+    <div class="ghost-text" aria-hidden="true">ПРИМЕРКА&nbsp;КОЛЁС</div>
+
+    <!-- decorative dots -->
+    <div class="dot dot-1" aria-hidden="true"></div>
+    <div class="dot dot-2" aria-hidden="true"></div>
+    <div class="dot dot-3" aria-hidden="true"></div>
+    <div class="dot dot-4" aria-hidden="true"></div>
+    <div class="dot dot-5" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <span class="hero-label">Примерка дисков с ИИ</span>
+
+      <h1 class="hero-h1">
+        Примерь любые<br>
+        <!-- colorful letters of "диски" -->
+        <span class="color-row" aria-label="диски на авто">
+          <span class="l1">д</span><span class="l2">и</span><span class="l3">с</span><span class="l4">к</span><span class="l5">и</span>
+        </span>
+        <span class="lk"> на авто</span>
+      </h1>
+
+      <p class="hero-sub">
+        Загрузи фото автомобиля и получи результат,<br>
+        <span class="faded">не выходя из Telegram.</span>
+      </p>
+
+      <a href="https://t.me/Primerkakoles_bot" class="btn-cta btn-cta-lg" target="_blank" rel="noopener">
+        <!-- Telegram icon -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:1.15em;height:1.15em;fill:#fff;flex-shrink:0;">
           <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
         </svg>
         Попробовать бесплатно
       </a>
-      <span class="hero-note">Без регистрации — просто открой бота в Telegram</span>
+      <span class="hero-note">Без регистрации — просто открой бота</span>
+    </div>
+
+    <!-- GALLERY (placeholders — фото будут заменены позже) -->
+    <div class="gallery">
+      <div class="gallery-inner">
+
+        <!-- edge left (частично видна) -->
+        <div class="gallery-card edge gc-edge-l ph-1">
+          <div class="placeholder">
+            <svg class="wheel-icon" width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="28" stroke="#888" stroke-width="3"/>
+              <circle cx="30" cy="30" r="8" stroke="#888" stroke-width="3"/>
+              <line x1="30" y1="2" x2="30" y2="22" stroke="#888" stroke-width="2.5"/>
+              <line x1="30" y1="38" x2="30" y2="58" stroke="#888" stroke-width="2.5"/>
+              <line x1="2" y1="30" x2="22" y2="30" stroke="#888" stroke-width="2.5"/>
+              <line x1="38" y1="30" x2="58" y2="30" stroke="#888" stroke-width="2.5"/>
+              <line x1="9.86" y1="9.86" x2="23.64" y2="23.64" stroke="#888" stroke-width="2.5"/>
+              <line x1="36.36" y1="36.36" x2="50.14" y2="50.14" stroke="#888" stroke-width="2.5"/>
+              <line x1="50.14" y1="9.86" x2="36.36" y2="23.64" stroke="#888" stroke-width="2.5"/>
+              <line x1="23.64" y1="36.36" x2="9.86" y2="50.14" stroke="#888" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <span class="ph-label dark">Скоро</span>
+        </div>
+
+        <!-- card 2 -->
+        <div class="gallery-card gc-sm ph-2">
+          <div class="placeholder">
+            <svg class="wheel-icon" width="70" height="70" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="28" stroke="#fff" stroke-width="3"/>
+              <circle cx="30" cy="30" r="8" stroke="#fff" stroke-width="3"/>
+              <line x1="30" y1="2" x2="30" y2="22" stroke="#fff" stroke-width="2.5"/>
+              <line x1="30" y1="38" x2="30" y2="58" stroke="#fff" stroke-width="2.5"/>
+              <line x1="2" y1="30" x2="22" y2="30" stroke="#fff" stroke-width="2.5"/>
+              <line x1="38" y1="30" x2="58" y2="30" stroke="#fff" stroke-width="2.5"/>
+              <line x1="9.86" y1="9.86" x2="23.64" y2="23.64" stroke="#fff" stroke-width="2.5"/>
+              <line x1="36.36" y1="36.36" x2="50.14" y2="50.14" stroke="#fff" stroke-width="2.5"/>
+              <line x1="50.14" y1="9.86" x2="36.36" y2="23.64" stroke="#fff" stroke-width="2.5"/>
+              <line x1="23.64" y1="36.36" x2="9.86" y2="50.14" stroke="#fff" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <span class="ph-label">Скоро</span>
+        </div>
+
+        <!-- center (tall, most prominent) -->
+        <div class="gallery-card gc-lg ph-3">
+          <div class="placeholder" style="height:100%;">
+            <svg class="wheel-icon" width="100" height="100" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="28" stroke="#fff" stroke-width="3"/>
+              <circle cx="30" cy="30" r="8" stroke="#fff" stroke-width="3"/>
+              <line x1="30" y1="2" x2="30" y2="22" stroke="#fff" stroke-width="2.5"/>
+              <line x1="30" y1="38" x2="30" y2="58" stroke="#fff" stroke-width="2.5"/>
+              <line x1="2" y1="30" x2="22" y2="30" stroke="#fff" stroke-width="2.5"/>
+              <line x1="38" y1="30" x2="58" y2="30" stroke="#fff" stroke-width="2.5"/>
+              <line x1="9.86" y1="9.86" x2="23.64" y2="23.64" stroke="#fff" stroke-width="2.5"/>
+              <line x1="36.36" y1="36.36" x2="50.14" y2="50.14" stroke="#fff" stroke-width="2.5"/>
+              <line x1="50.14" y1="9.86" x2="36.36" y2="23.64" stroke="#fff" stroke-width="2.5"/>
+              <line x1="23.64" y1="36.36" x2="9.86" y2="50.14" stroke="#fff" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <span class="ph-label">Фото примерки</span>
+        </div>
+
+        <!-- card 4 -->
+        <div class="gallery-card gc-sm ph-4">
+          <div class="placeholder">
+            <svg class="wheel-icon" width="70" height="70" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="28" stroke="#fff" stroke-width="3"/>
+              <circle cx="30" cy="30" r="8" stroke="#fff" stroke-width="3"/>
+              <line x1="30" y1="2" x2="30" y2="22" stroke="#fff" stroke-width="2.5"/>
+              <line x1="30" y1="38" x2="30" y2="58" stroke="#fff" stroke-width="2.5"/>
+              <line x1="2" y1="30" x2="22" y2="30" stroke="#fff" stroke-width="2.5"/>
+              <line x1="38" y1="30" x2="58" y2="30" stroke="#fff" stroke-width="2.5"/>
+              <line x1="9.86" y1="9.86" x2="23.64" y2="23.64" stroke="#fff" stroke-width="2.5"/>
+              <line x1="36.36" y1="36.36" x2="50.14" y2="50.14" stroke="#fff" stroke-width="2.5"/>
+              <line x1="50.14" y1="9.86" x2="36.36" y2="23.64" stroke="#fff" stroke-width="2.5"/>
+              <line x1="23.64" y1="36.36" x2="9.86" y2="50.14" stroke="#fff" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <span class="ph-label">Скоро</span>
+        </div>
+
+        <!-- edge right (частично видна) -->
+        <div class="gallery-card edge gc-edge-r ph-5">
+          <div class="placeholder">
+            <svg class="wheel-icon" width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <circle cx="30" cy="30" r="28" stroke="#888" stroke-width="3"/>
+              <circle cx="30" cy="30" r="8" stroke="#888" stroke-width="3"/>
+              <line x1="30" y1="2" x2="30" y2="22" stroke="#888" stroke-width="2.5"/>
+              <line x1="30" y1="38" x2="30" y2="58" stroke="#888" stroke-width="2.5"/>
+              <line x1="2" y1="30" x2="22" y2="30" stroke="#888" stroke-width="2.5"/>
+              <line x1="38" y1="30" x2="58" y2="30" stroke="#888" stroke-width="2.5"/>
+              <line x1="9.86" y1="9.86" x2="23.64" y2="23.64" stroke="#888" stroke-width="2.5"/>
+              <line x1="36.36" y1="36.36" x2="50.14" y2="50.14" stroke="#888" stroke-width="2.5"/>
+              <line x1="50.14" y1="9.86" x2="36.36" y2="23.64" stroke="#888" stroke-width="2.5"/>
+              <line x1="23.64" y1="36.36" x2="9.86" y2="50.14" stroke="#888" stroke-width="2.5"/>
+            </svg>
+          </div>
+          <span class="ph-label dark">Скоро</span>
+        </div>
+
+      </div>
+      <div class="gallery-wave"></div>
     </div>
   </section>
 
   <!-- HOW IT WORKS -->
   <section class="how" id="how">
-    <div class="how-inner">
-      <p class="section-label">Как это работает</p>
-      <h2 class="section-title">Три простых шага</h2>
-      <div class="steps">
+    <p class="section-eyebrow">Как это работает</p>
+    <h2 class="section-h2">Три простых шага</h2>
+    <div class="steps">
 
-        <div class="step">
-          <div class="step-number">1</div>
-          <div class="step-icon">📷</div>
-          <h3>Загрузи фото</h3>
-          <p>Отправь фотографию своего автомобиля прямо в чат Telegram-бота. Подойдёт обычное фото с телефона.</p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">2</div>
-          <div class="step-icon">🎡</div>
-          <h3>Выбери диски</h3>
-          <p>Укажи модель, размер или стиль дисков, которые хочешь примерить. Можно попробовать сразу несколько вариантов.</p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">3</div>
-          <div class="step-icon">✨</div>
-          <h3>Получи результат</h3>
-          <p>ИИ обработает фото и пришлёт изображение с новыми колёсами. Оцени, как смотрится — и принимай решение.</p>
-        </div>
-
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-emoji">📷</div>
+        <h3>Загрузи фото</h3>
+        <p>Отправь фотографию своего автомобиля прямо в чат Telegram-бота. Подойдёт обычное фото с телефона.</p>
       </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-emoji">🎡</div>
+        <h3>Выбери диски</h3>
+        <p>Укажи модель, размер или стиль дисков, которые хочешь примерить. Можно попробовать несколько вариантов.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-emoji">✨</div>
+        <h3>Получи результат</h3>
+        <p>ИИ обработает фото и пришлёт изображение с новыми колёсами. Оцени, как смотрится — и принимай решение.</p>
+      </div>
+
     </div>
   </section>
 
-  <!-- CTA SECTION -->
+  <!-- CTA BOTTOM -->
   <section class="cta-section">
     <h2>Готов примерить?</h2>
-    <p>
-      Больше не нужно гадать, подойдут ли диски. Убедись визуально — это бесплатно и занимает меньше минуты.
-    </p>
-    <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary btn-primary-lg" target="_blank" rel="noopener">
-      <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <p>Больше не нужно гадать, подойдут ли диски. Убедись визуально — бесплатно, меньше минуты.</p>
+    <a href="https://t.me/Primerkakoles_bot" class="btn-cta btn-cta-lg" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="width:1.15em;height:1.15em;fill:#fff;flex-shrink:0;">
         <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
       </svg>
       Открыть бота в Telegram
     </a>
+    <span class="hero-note">Без регистрации — просто открой бота</span>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2024 Примерка Колёс &nbsp;·&nbsp; <a href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">@Primerkakoles_bot</a></p>
+    <p>© 2025 ПримеркаКолёс &nbsp;·&nbsp;
+      <a href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">@Primerkakoles_bot</a>
+    </p>
   </footer>
 
 </body>
