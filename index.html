@@ -272,32 +272,94 @@
       font-size: 0.95rem;
     }
 
-    /* ── GALLERY ─────────────────────────────────── */
+    /* ── GALLERY CAROUSEL ────────────────────────── */
     .gallery {
-      padding: 4rem 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto;
+      padding: 4rem 0;
+      overflow: hidden;
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto auto;
+    .gallery-header {
+      padding: 0 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
       gap: 1rem;
+    }
+
+    .gallery-nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .gallery-nav-btn {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      border: 2px solid #e5e7eb;
+      background: var(--bg);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      font-size: 1.1rem;
+    }
+
+    .gallery-nav-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .gallery-nav-btn:disabled {
+      opacity: 0.35;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .gallery-track-wrap {
+      position: relative;
+    }
+
+    .gallery-track {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      overflow: hidden;
+    }
+
+    .gallery-row {
+      display: flex;
+      gap: 0.75rem;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+      padding: 0 1.5rem;
     }
 
     .gallery-item {
       border-radius: var(--radius);
       overflow: hidden;
       background: var(--bg-alt);
+      flex: 0 0 300px;
       aspect-ratio: 4 / 3;
       position: relative;
       cursor: pointer;
     }
 
-    .gallery-item:first-child {
-      grid-column: span 2;
-      aspect-ratio: 16 / 9;
+    @media (max-width: 640px) {
+      .gallery-item {
+        flex: 0 0 260px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .gallery-item {
+        flex: 0 0 220px;
+      }
     }
 
     .gallery-item img {
@@ -312,35 +374,12 @@
       transform: scale(1.04);
     }
 
-    /* Placeholder when no image */
-    .gallery-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      color: #9ca3af;
-    }
-
-    .gallery-placeholder-icon {
-      font-size: 2.5rem;
-      opacity: 0.5;
-    }
-
-    .gallery-placeholder span {
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-    }
-
     /* Lightbox */
     .lightbox {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.88);
       z-index: 1000;
       align-items: center;
       justify-content: center;
@@ -375,25 +414,30 @@
       opacity: 1;
     }
 
-    @media (max-width: 640px) {
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .gallery-item:first-child {
-        grid-column: span 2;
-      }
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.12);
+      border: none;
+      color: #fff;
+      font-size: 1.75rem;
+      cursor: pointer;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
     }
 
-    @media (max-width: 380px) {
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-item:first-child {
-        grid-column: span 1;
-      }
+    .lightbox-arrow:hover {
+      background: rgba(255,255,255,0.25);
     }
+
+    .lightbox-arrow.prev { left: 1rem; }
+    .lightbox-arrow.next { right: 1rem; }
 
     /* ── FOR BUSINESS ────────────────────────────── */
     .business {
@@ -786,45 +830,57 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section id="gallery">
-    <div class="gallery">
-      <p class="section-label">Примеры работ</p>
-      <h2 class="section-title">Примерка в реальном времени</h2>
-      <div class="gallery-grid" id="galleryGrid">
+  <!-- GALLERY CAROUSEL -->
+  <section id="gallery" class="gallery">
+    <div class="gallery-header">
+      <div>
+        <p class="section-label">Примеры работ</p>
+        <h2 class="section-title" style="margin-bottom:0">Примерка в реальном времени</h2>
+      </div>
+      <div class="gallery-nav">
+        <button class="gallery-nav-btn" id="galleryPrev" aria-label="Назад">&#8592;</button>
+        <button class="gallery-nav-btn" id="galleryNext" aria-label="Вперёд">&#8594;</button>
+      </div>
+    </div>
 
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <div class="gallery-placeholder-icon">🚗</div>
-            <span>Фото скоро</span>
+    <div class="gallery-track-wrap">
+      <div class="gallery-track" id="galleryTrack">
+
+        <!-- Row 1 -->
+        <div class="gallery-row" id="galleryRow1">
+          <div class="gallery-item">
+            <img src="https://drive.google.com/thumbnail?id=REPLACE_ID_1&sz=w600" alt="Примерка дисков 1" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://drive.google.com/thumbnail?id=REPLACE_ID_2&sz=w600" alt="Примерка дисков 2" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://drive.google.com/thumbnail?id=REPLACE_ID_3&sz=w600" alt="Примерка дисков 3" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://drive.google.com/thumbnail?id=REPLACE_ID_4&sz=w600" alt="Примерка дисков 4" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://drive.google.com/thumbnail?id=REPLACE_ID_5&sz=w600" alt="Примерка дисков 5" loading="lazy">
           </div>
         </div>
 
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <div class="gallery-placeholder-icon">🚗</div>
-            <span>Фото скоро</span>
+        <!-- Row 2 -->
+        <div class="gallery-row" id="galleryRow2">
+          <div class="gallery-item">
+            <img src="https://drive.google.com/thumbnail?id=REPLACE_ID_6&sz=w600" alt="Примерка дисков 6" loading="lazy">
           </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <div class="gallery-placeholder-icon">🚗</div>
-            <span>Фото скоро</span>
+          <div class="gallery-item">
+            <img src="https://drive.google.com/thumbnail?id=REPLACE_ID_7&sz=w600" alt="Примерка дисков 7" loading="lazy">
           </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <div class="gallery-placeholder-icon">🚗</div>
-            <span>Фото скоро</span>
+          <div class="gallery-item">
+            <img src="https://drive.google.com/thumbnail?id=REPLACE_ID_8&sz=w600" alt="Примерка дисков 8" loading="lazy">
           </div>
-        </div>
-
-        <div class="gallery-item">
-          <div class="gallery-placeholder">
-            <div class="gallery-placeholder-icon">🚗</div>
-            <span>Фото скоро</span>
+          <div class="gallery-item">
+            <img src="https://drive.google.com/thumbnail?id=REPLACE_ID_9&sz=w600" alt="Примерка дисков 9" loading="lazy">
+          </div>
+          <div class="gallery-item">
+            <img src="https://drive.google.com/thumbnail?id=REPLACE_ID_10&sz=w600" alt="Примерка дисков 10" loading="lazy">
           </div>
         </div>
 
@@ -835,6 +891,8 @@
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
     <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">&times;</button>
+    <button class="lightbox-arrow prev" id="lightboxPrev" aria-label="Предыдущее">&#8592;</button>
+    <button class="lightbox-arrow next" id="lightboxNext" aria-label="Следующее">&#8594;</button>
     <img id="lightboxImg" src="" alt="">
   </div>
 
@@ -925,21 +983,90 @@
   </footer>
 
   <script>
-    // Lightbox for gallery
+    // ── Gallery Carousel ──────────────────────────────────────────
+    const row1 = document.getElementById('galleryRow1');
+    const row2 = document.getElementById('galleryRow2');
+    const prevBtn = document.getElementById('galleryPrev');
+    const nextBtn = document.getElementById('galleryNext');
+
+    const ITEM_W = () => {
+      const item = row1.querySelector('.gallery-item');
+      if (!item) return 300;
+      const style = getComputedStyle(item);
+      return item.offsetWidth + parseFloat(style.marginRight || 0);
+    };
+    const GAP = 12; // matches 0.75rem gap
+
+    let offset = 0;
+
+    function getMaxOffset() {
+      const item = row1.querySelector('.gallery-item');
+      if (!item) return 0;
+      const itemW = item.offsetWidth + GAP;
+      const totalItems = row1.querySelectorAll('.gallery-item').length;
+      const visibleW = row1.parentElement.offsetWidth - 48; // 2×1.5rem padding
+      return Math.max(0, itemW * totalItems - visibleW);
+    }
+
+    function setOffset(val) {
+      const max = getMaxOffset();
+      offset = Math.max(0, Math.min(val, max));
+      row1.style.transform = `translateX(-${offset}px)`;
+      row2.style.transform = `translateX(-${offset}px)`;
+      prevBtn.disabled = offset <= 0;
+      nextBtn.disabled = offset >= max;
+    }
+
+    const step = () => {
+      const item = row1.querySelector('.gallery-item');
+      return item ? item.offsetWidth + GAP : 300;
+    };
+
+    prevBtn.addEventListener('click', () => setOffset(offset - step()));
+    nextBtn.addEventListener('click', () => setOffset(offset + step()));
+    setOffset(0);
+    window.addEventListener('resize', () => setOffset(offset));
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    const track = document.getElementById('galleryTrack');
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const dx = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 40) setOffset(offset + (dx > 0 ? step() : -step()));
+    });
+
+    // ── Lightbox ──────────────────────────────────────────────────
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
 
-    document.getElementById('galleryGrid').addEventListener('click', function(e) {
+    let allImgs = [];
+    let currentIdx = 0;
+
+    document.getElementById('galleryTrack').addEventListener('click', function(e) {
       const item = e.target.closest('.gallery-item');
       if (!item) return;
       const img = item.querySelector('img');
       if (!img) return;
+      allImgs = Array.from(document.querySelectorAll('.gallery-item img'));
+      currentIdx = allImgs.indexOf(img);
+      openLightbox(currentIdx);
+    });
+
+    function openLightbox(idx) {
+      const img = allImgs[idx];
+      if (!img) return;
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
+      currentIdx = idx;
+      lightboxPrev.style.display = idx === 0 ? 'none' : '';
+      lightboxNext.style.display = idx === allImgs.length - 1 ? 'none' : '';
       lightbox.classList.add('open');
       document.body.style.overflow = 'hidden';
-    });
+    }
 
     function closeLightbox() {
       lightbox.classList.remove('open');
@@ -947,11 +1074,16 @@
     }
 
     lightboxClose.addEventListener('click', closeLightbox);
+    lightboxPrev.addEventListener('click', () => openLightbox(currentIdx - 1));
+    lightboxNext.addEventListener('click', () => openLightbox(currentIdx + 1));
     lightbox.addEventListener('click', function(e) {
       if (e.target === lightbox) closeLightbox();
     });
     document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('open')) return;
       if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft' && currentIdx > 0) openLightbox(currentIdx - 1);
+      if (e.key === 'ArrowRight' && currentIdx < allImgs.length - 1) openLightbox(currentIdx + 1);
     });
   </script>
 
