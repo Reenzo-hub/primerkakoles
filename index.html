@@ -487,6 +487,229 @@
     .lightbox-arrow.prev { left: 1rem; }
     .lightbox-arrow.next { right: 1rem; }
 
+    /* ── PRICING ──────────────────────────────────── */
+    .pricing {
+      padding: 5rem 1.5rem;
+      background: var(--bg-alt);
+    }
+
+    .pricing-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 680px) {
+      .pricing-cards { grid-template-columns: 1fr; }
+    }
+
+    .pricing-card {
+      background: var(--bg);
+      border: 1.5px solid #e5e7eb;
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem 1.75rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(42, 171, 238, 0.08);
+      border-color: #c9e8f9;
+    }
+
+    .pricing-card.hot {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(42, 171, 238, 0.15);
+    }
+
+    .pricing-card.hot:hover {
+      box-shadow: 0 8px 32px rgba(42, 171, 238, 0.25);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 40px;
+      white-space: nowrap;
+    }
+
+    .pricing-card-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .pricing-qty {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .pricing-qty sub {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--muted);
+      vertical-align: baseline;
+    }
+
+    .pricing-unit {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .pricing-divider {
+      height: 1px;
+      background: #e5e7eb;
+      margin-bottom: 1.25rem;
+    }
+
+    .pricing-price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-card.hot .pricing-price {
+      color: var(--accent);
+    }
+
+    .pricing-per {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .pricing-discount {
+      display: inline-block;
+      background: rgba(42, 171, 238, 0.1);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 1.25rem;
+    }
+
+    .pricing-btn {
+      margin-top: auto;
+      display: block;
+      width: 100%;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      border: 1.5px solid #e5e7eb;
+      background: transparent;
+      color: var(--muted);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .pricing-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .pricing-card.hot .pricing-btn {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .pricing-card.hot .pricing-btn:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
+    }
+
+    .pricing-bulk {
+      border: 1.5px solid #e5e7eb;
+      border-radius: var(--radius);
+      padding: 1.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      background: var(--bg);
+      transition: border-color 0.2s;
+    }
+
+    .pricing-bulk:hover {
+      border-color: #c9e8f9;
+    }
+
+    @media (max-width: 600px) {
+      .pricing-bulk { flex-direction: column; text-align: center; }
+    }
+
+    .pricing-bulk-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .pricing-bulk-desc {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .pricing-bulk-btn {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      border: 1.5px solid #e5e7eb;
+      background: transparent;
+      color: var(--text);
+      font-size: 0.875rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .pricing-bulk-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #fff;
+    }
+
     /* ── FOR BUSINESS ────────────────────────────── */
     .business {
       background: #0f172a;
@@ -953,6 +1176,64 @@
     <button class="lightbox-arrow next" id="lightboxNext" aria-label="Следующее">&#8594;</button>
     <img id="lightboxImg" src="" alt="">
   </div>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="pricing-inner">
+      <div class="pricing-header">
+        <p class="section-label">Тарифы</p>
+        <h2 class="section-title">Выбери свой пакет</h2>
+        <p class="section-sub">Одна примерка — уже результат. Пакет — экономия на каждом диске.</p>
+      </div>
+
+      <div class="pricing-cards">
+        <!-- 1 примерка -->
+        <div class="pricing-card">
+          <div class="pricing-card-label">Попробовать</div>
+          <div class="pricing-qty">1 <sub>шт</sub></div>
+          <div class="pricing-unit">примерка</div>
+          <div class="pricing-divider"></div>
+          <div class="pricing-price">99 ₽</div>
+          <div class="pricing-per">99 ₽ за примерку</div>
+          <a class="pricing-btn" href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">Попробовать</a>
+        </div>
+
+        <!-- 5 примерок — HOT -->
+        <div class="pricing-card hot">
+          <div class="pricing-badge">🔥 Популярный</div>
+          <div class="pricing-card-label">Оптимальный выбор</div>
+          <div class="pricing-qty">5 <sub>шт</sub></div>
+          <div class="pricing-unit">примерок</div>
+          <div class="pricing-divider"></div>
+          <div class="pricing-price">390 ₽</div>
+          <div class="pricing-per">78 ₽ за примерку</div>
+          <div class="pricing-discount">Экономия 21%</div>
+          <a class="pricing-btn" href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">Выбрать пакет</a>
+        </div>
+
+        <!-- 10 примерок -->
+        <div class="pricing-card">
+          <div class="pricing-card-label">Выгодный</div>
+          <div class="pricing-qty">10 <sub>шт</sub></div>
+          <div class="pricing-unit">примерок</div>
+          <div class="pricing-divider"></div>
+          <div class="pricing-price">690 ₽</div>
+          <div class="pricing-per">69 ₽ за примерку</div>
+          <div class="pricing-discount">Экономия 30%</div>
+          <a class="pricing-btn" href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">Выбрать пакет</a>
+        </div>
+      </div>
+
+      <!-- Бизнес-CTA -->
+      <div class="pricing-bulk">
+        <div>
+          <div class="pricing-bulk-title">Нужно больше? Для бизнеса — особые условия</div>
+          <div class="pricing-bulk-desc">Автосалоны, шинные центры, маркетплейсы дисков —<br>обсудим объём и сделаем специальное предложение.</div>
+        </div>
+        <a class="pricing-bulk-btn" href="mailto:info@primerkakoles.ru">Написать нам →</a>
+      </div>
+    </div>
+  </section>
 
   <!-- FOR BUSINESS -->
   <section class="business" id="business">
