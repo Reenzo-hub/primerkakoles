@@ -667,6 +667,29 @@
       border-color: var(--accent-dark);
     }
 
+    .pricing-biz-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 2rem 0 1rem;
+    }
+
+    .pricing-biz-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      .pricing-biz-cards { grid-template-columns: 1fr; }
+    }
+
+    .pricing-biz-card {
+      border-style: dashed;
+    }
+
     .pricing-bulk {
       border: 1.5px solid #e5e7eb;
       border-radius: var(--radius);
@@ -1120,8 +1143,8 @@
           <div class="pricing-qty">1 <sub>шт</sub></div>
           <div class="pricing-unit">примерка</div>
           <div class="pricing-divider"></div>
-          <div class="pricing-price">99 ₽</div>
-          <div class="pricing-per">99 ₽ за примерку</div>
+          <div class="pricing-price">49 ₽</div>
+          <div class="pricing-per">49 ₽ за примерку</div>
           <a class="pricing-btn" href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">Попробовать</a>
         </div>
 
@@ -1132,9 +1155,9 @@
           <div class="pricing-qty">5 <sub>шт</sub></div>
           <div class="pricing-unit">примерок</div>
           <div class="pricing-divider"></div>
-          <div class="pricing-price">390 ₽</div>
-          <div class="pricing-per">78 ₽ за примерку</div>
-          <div class="pricing-discount">Экономия 21%</div>
+          <div class="pricing-price">199 ₽</div>
+          <div class="pricing-per">40 ₽ за примерку</div>
+          <div class="pricing-discount">Экономия 18%</div>
           <a class="pricing-btn" href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">Выбрать пакет</a>
         </div>
 
@@ -1144,20 +1167,37 @@
           <div class="pricing-qty">10 <sub>шт</sub></div>
           <div class="pricing-unit">примерок</div>
           <div class="pricing-divider"></div>
-          <div class="pricing-price">590 ₽</div>
-          <div class="pricing-per">59 ₽ за примерку</div>
-          <div class="pricing-discount">Экономия 40%</div>
+          <div class="pricing-price">349 ₽</div>
+          <div class="pricing-per">35 ₽ за примерку</div>
+          <div class="pricing-discount">Экономия 29%</div>
           <a class="pricing-btn" href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">Выбрать пакет</a>
         </div>
       </div>
 
-      <!-- Бизнес-CTA -->
-      <div class="pricing-bulk">
-        <div>
-          <div class="pricing-bulk-title">Нужно больше? Для бизнеса — особые условия</div>
-          <div class="pricing-bulk-desc">Автосалоны, шинные центры, маркетплейсы дисков —<br>обсудим объём и сделаем специальное предложение.</div>
+      <!-- Бизнес-тарифы -->
+      <p class="pricing-biz-label">Для бизнеса</p>
+      <div class="pricing-biz-cards">
+        <div class="pricing-card pricing-biz-card">
+          <div class="pricing-card-label">Малый опт</div>
+          <div class="pricing-qty">100 <sub>шт</sub></div>
+          <div class="pricing-unit">примерок</div>
+          <div class="pricing-divider"></div>
+          <div class="pricing-price">2 500 ₽</div>
+          <div class="pricing-per">25 ₽ за примерку</div>
+          <div class="pricing-discount">Экономия 49%</div>
+          <a class="pricing-btn" href="mailto:info@primerkakoles.ru">Написать нам →</a>
         </div>
-        <a class="pricing-bulk-btn" href="mailto:info@primerkakoles.ru">Написать нам →</a>
+
+        <div class="pricing-card pricing-biz-card">
+          <div class="pricing-card-label">Крупный опт</div>
+          <div class="pricing-qty">250 <sub>шт</sub></div>
+          <div class="pricing-unit">примерок</div>
+          <div class="pricing-divider"></div>
+          <div class="pricing-price">5 000 ₽</div>
+          <div class="pricing-per">20 ₽ за примерку</div>
+          <div class="pricing-discount">Экономия 59%</div>
+          <a class="pricing-btn" href="mailto:info@primerkakoles.ru">Написать нам →</a>
+        </div>
       </div>
     </div>
   </section>
