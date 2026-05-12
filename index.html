@@ -4,18 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Примерка Колёс — примерка дисков онлайн на фото вашего авто</title>
-  <meta name="description" content="Примерка дисков онлайн с помощью ИИ. Загрузи фото авто в Telegram-бот — получи результат за 1 минуту. Как будут выглядеть новые диски на вашей машине? Узнай прямо сейчас!">
-  <meta name="keywords" content="примерка дисков онлайн, примерка колёс на авто, подобрать диски онлайн, как выглядят диски на машине, примерить колёса на фото, нейросеть примерка дисков, ИИ диски автомобиль, Telegram бот диски">
+  <meta name="description" content="Примерка дисков онлайн с помощью ИИ в Telegram и на сайте. Загрузи фото авто — получи результат за 1 минуту. Как будут выглядеть новые диски на вашей машине? Узнай прямо сейчас!">
+  <meta name="keywords" content="примерка дисков онлайн, примерка колёс на авто, подобрать диски онлайн, как выглядят диски на машине, примерить колёса на фото, нейросеть примерка дисков, ИИ диски автомобиль, Telegram бот диски, веб примерка дисков">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Примерка Колёс">
   <link rel="canonical" href="https://reenzo-hub.github.io/primerkakoles/">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232AABEE'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23fff' stroke-width='2.2'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%23fff'/%3E%3Cline x1='16' y1='5' x2='16' y2='12.5' stroke='%23fff' stroke-width='2' stroke-linecap='round'/%3E%3Cline x1='25.45' y1='10.5' x2='19.95' y2='13.7' stroke='%23fff' stroke-width='2' stroke-linecap='round'/%3E%3Cline x1='22.55' y1='22.9' x2='18.05' y2='19.65' stroke='%23fff' stroke-width='2' stroke-linecap='round'/%3E%3Cline x1='9.45' y1='22.9' x2='13.95' y2='19.65' stroke='%23fff' stroke-width='2' stroke-linecap='round'/%3E%3Cline x1='6.55' y1='10.5' x2='12.05' y2='13.7' stroke='%23fff' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="apple-touch-icon" href="img/logo.jpg">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://reenzo-hub.github.io/primerkakoles/">
   <meta property="og:title" content="Примерка Колёс — примерка дисков онлайн на фото вашего авто">
-  <meta property="og:description" content="Загрузи фото авто в Telegram-бот и примерь любые диски с помощью ИИ. Результат за 1 минуту. Узнай, как будут выглядеть новые колёса!">
+  <meta property="og:description" content="Загрузи фото авто в Telegram-бот или веб-версию и примерь любые диски с помощью ИИ. Результат за 1 минуту. Узнай, как будут выглядеть новые колёса!">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="Примерка Колёс">
   <meta property="og:image" content="https://drive.google.com/thumbnail?id=1bZeAz-6LuIPYjq7oi9FhJbhs0_sXho_y&sz=w1200">
@@ -26,7 +27,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Примерка Колёс — примерка дисков онлайн на фото вашего авто">
-  <meta name="twitter:description" content="Загрузи фото авто в Telegram-бот и примерь любые диски с помощью ИИ. Результат за 1 минуту.">
+  <meta name="twitter:description" content="Загрузи фото авто в Telegram-бот или веб-версию и примерь любые диски с помощью ИИ. Результат за 1 минуту.">
   <meta name="twitter:image" content="https://drive.google.com/thumbnail?id=1bZeAz-6LuIPYjq7oi9FhJbhs0_sXho_y&sz=w1200">
   <style>
     *, *::before, *::after {
@@ -36,8 +37,10 @@
     }
 
     :root {
-      --accent: #2AABEE;
-      --accent-dark: #1e96d8;
+      --accent: #f97316;
+      --accent-dark: #ea580c;
+      --accent-soft: #fff3e8;
+      --accent-line: #fed7aa;
       --text: #111827;
       --muted: #6b7280;
       --bg: #ffffff;
@@ -61,6 +64,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
       padding: 1rem 1.5rem;
       border-bottom: 1px solid #e5e7eb;
       position: sticky;
@@ -80,6 +84,10 @@
     .logo-icon {
       width: 2.5rem;
       height: 2.5rem;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
       flex-shrink: 0;
     }
 
@@ -103,10 +111,6 @@
       color: var(--accent);
       letter-spacing: 0.04em;
       text-transform: uppercase;
-    }
-
-    header a.btn-tg {
-      font-size: 0.9rem;
     }
 
     .header-contacts {
@@ -137,18 +141,47 @@
       }
     }
 
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .header-actions .btn {
+      padding: 0.65rem 1rem;
+      font-size: 0.9rem;
+      border-radius: 10px;
+    }
+
+    .login-link {
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .login-link:hover {
+      color: var(--accent);
+    }
+
     /* ── BUTTONS ─────────────────────────────────── */
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
+      min-height: 2.75rem;
+      padding: 0.65rem 1rem;
       border-radius: var(--radius);
-      font-size: 1rem;
+      font-size: 0.9rem;
       font-weight: 600;
       cursor: pointer;
       text-decoration: none;
-      transition: background 0.2s, transform 0.1s;
+      white-space: nowrap;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.1s, box-shadow 0.2s;
       border: none;
     }
 
@@ -157,41 +190,78 @@
     }
 
     .btn-primary {
-      background: var(--accent);
+      background: #229ED9;
       color: #fff;
+      box-shadow: 0 8px 18px rgba(34, 158, 217, 0.18);
     }
 
     .btn-primary:hover {
-      background: var(--accent-dark);
+      background: #1d8fc4;
     }
 
     .btn-primary-lg {
-      padding: 1rem 2rem;
-      font-size: 1.125rem;
-      border-radius: 14px;
+      padding: 0.65rem 1rem;
+      font-size: 0.9rem;
+      border-radius: 10px;
     }
 
     .btn-outline {
-      background: transparent;
+      background: #fff;
       color: var(--accent);
-      border: 2px solid var(--accent);
+      border: 2px solid var(--accent-line);
     }
 
     .btn-outline:hover {
-      background: #d4f0fc;
+      background: var(--accent-soft);
+      border-color: var(--accent);
+    }
+
+    .btn-disabled {
+      position: relative;
+      background: #f3f4f6;
+      color: #9ca3af;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .btn:disabled,
+    .btn[aria-disabled="true"] {
+      transform: none;
+    }
+
+    .btn-badge {
+      padding: 0.08rem 0.34rem;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--accent-dark);
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .web-icon {
+      width: 1.2em;
+      height: 1.2em;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
     }
 
     /* ── HERO ────────────────────────────────────── */
     .hero {
       text-align: center;
       padding: 4rem 1.5rem 3rem;
-      max-width: 680px;
+      max-width: 860px;
       margin: 0 auto;
     }
 
     .hero-badge {
       display: inline-block;
-      background: #d4f0fc;
+      background: var(--accent-soft);
       color: var(--accent);
       font-size: 0.85rem;
       font-weight: 600;
@@ -202,7 +272,7 @@
     }
 
     .hero h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(2.25rem, 5vw, 3.4rem);
       font-weight: 800;
       line-height: 1.2;
       margin-bottom: 1rem;
@@ -228,6 +298,20 @@
       flex-direction: column;
       align-items: center;
       gap: 0.75rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    .hero-actions .btn,
+    .cta-actions .btn {
+      width: 12.5rem;
+      justify-content: center;
     }
 
     .hero-note {
@@ -280,7 +364,7 @@
     .step-img {
       position: relative;
       aspect-ratio: 4 / 3;
-      background: #e8f6fd;
+      background: var(--accent-soft);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -390,6 +474,12 @@
       flex-direction: column;
       gap: 0.75rem;
       overflow: hidden;
+    }
+
+    .gallery-more {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1.5rem 0;
     }
 
     .gallery-row {
@@ -539,17 +629,17 @@
 
     .pricing-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(42, 171, 238, 0.08);
-      border-color: #c9e8f9;
+      box-shadow: 0 8px 24px rgba(249, 115, 22, 0.08);
+      border-color: var(--accent-line);
     }
 
     .pricing-card.hot {
       border-color: var(--accent);
-      box-shadow: 0 4px 20px rgba(42, 171, 238, 0.15);
+      box-shadow: 0 4px 20px rgba(249, 115, 22, 0.15);
     }
 
     .pricing-card.hot:hover {
-      box-shadow: 0 8px 32px rgba(42, 171, 238, 0.25);
+      box-shadow: 0 8px 32px rgba(249, 115, 22, 0.25);
     }
 
     .pricing-badge {
@@ -624,7 +714,7 @@
 
     .pricing-discount {
       display: inline-block;
-      background: rgba(42, 171, 238, 0.1);
+      background: var(--accent-soft);
       color: var(--accent);
       font-size: 0.7rem;
       font-weight: 700;
@@ -703,7 +793,7 @@
     }
 
     .pricing-bulk:hover {
-      border-color: #c9e8f9;
+      border-color: var(--accent-line);
     }
 
     @media (max-width: 600px) {
@@ -871,8 +961,8 @@
     }
 
     .business-trial {
-      background: linear-gradient(135deg, #1e3a5f 0%, #1e293b 100%);
-      border: 1px solid #2AABEE44;
+      background: linear-gradient(135deg, #3b250f 0%, #1e293b 100%);
+      border: 1px solid rgba(249, 115, 22, 0.32);
       border-radius: 16px;
       padding: 2rem 1.5rem;
       text-align: center;
@@ -899,7 +989,7 @@
     .cta-section {
       padding: 5rem 1.5rem;
       text-align: center;
-      max-width: 600px;
+      max-width: 860px;
       margin: 0 auto;
     }
 
@@ -914,6 +1004,13 @@
       color: var(--muted);
       font-size: 1.05rem;
       margin-bottom: 2rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     /* ── FOOTER ──────────────────────────────────── */
@@ -938,7 +1035,7 @@
       text-decoration: underline;
     }
 
-    /* ── TELEGRAM ICON ───────────────────────────── */
+    /* ── ICONS ───────────────────────────────────── */
     .tg-icon {
       width: 1.2em;
       height: 1.2em;
@@ -947,14 +1044,35 @@
     }
 
     /* ── RESPONSIVE ──────────────────────────────── */
-    @media (max-width: 480px) {
-      header a.btn-tg {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
+    @media (max-width: 900px) {
+      header {
+        flex-wrap: wrap;
       }
 
+      .header-actions {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
       .hero {
         padding: 2.5rem 1.25rem 2rem;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .cta-actions .btn {
+        width: 100%;
       }
 
       .flow-steps {
@@ -977,16 +1095,7 @@
   <!-- HEADER -->
   <header>
     <a href="#" class="logo">
-      <svg class="logo-icon" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="19" fill="#e8f6fd" stroke="#2AABEE" stroke-width="2"/>
-        <circle cx="20" cy="20" r="13" fill="none" stroke="#2AABEE" stroke-width="2.5"/>
-        <circle cx="20" cy="20" r="4" fill="#2AABEE"/>
-        <line x1="20" y1="7" x2="20" y2="16" stroke="#2AABEE" stroke-width="2.2" stroke-linecap="round"/>
-        <line x1="31.3" y1="13.5" x2="23.6" y2="17.5" stroke="#2AABEE" stroke-width="2.2" stroke-linecap="round"/>
-        <line x1="27.4" y1="28.2" x2="21.9" y2="23.5" stroke="#2AABEE" stroke-width="2.2" stroke-linecap="round"/>
-        <line x1="12.6" y1="28.2" x2="18.1" y2="23.5" stroke="#2AABEE" stroke-width="2.2" stroke-linecap="round"/>
-        <line x1="8.7" y1="13.5" x2="16.4" y2="17.5" stroke="#2AABEE" stroke-width="2.2" stroke-linecap="round"/>
-      </svg>
+      <img class="logo-icon" src="img/logo.jpg" alt="" aria-hidden="true">
       <span class="logo-text">
         <span class="logo-top">Примерка</span>
         <span class="logo-bottom">Колёс</span>
@@ -996,30 +1105,57 @@
       <a href="tel:+79250079994">+7 (925) 007-99-94</a>
       <a href="mailto:info@primerkakoles.ru">info@primerkakoles.ru</a>
     </div>
-    <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary btn-tg" target="_blank" rel="noopener">
-      <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-      </svg>
-      Открыть бота
-    </a>
+    <nav class="header-actions" aria-label="Основные действия">
+      <a href="https://app.primerkakoles.ru/cabinet" class="btn btn-outline" target="_blank" rel="noopener">
+        <svg class="web-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M2 12h20"></path>
+          <path d="M12 2a15.3 15.3 0 0 1 0 20"></path>
+          <path d="M12 2a15.3 15.3 0 0 0 0 20"></path>
+        </svg>
+        На сайте
+      </a>
+      <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary" target="_blank" rel="noopener">
+        <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+        </svg>
+        в Телеграм
+      </a>
+      <a href="https://app.primerkakoles.ru/login" class="login-link" target="_blank" rel="noopener">Войти</a>
+    </nav>
   </header>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-badge">Работает в Telegram</div>
-    <h1>Примерь <em>любые диски</em> на своё авто</h1>
+    <div class="hero-badge">Работает в Telegram и на сайте</div>
+    <h1>Примерь <em>любые диски</em><br>на своё авто</h1>
     <p>
       Загрузи фото автомобиля — ИИ покажет, как будут смотреться новые колёса,
       прежде чем ты потратишь деньги на покупку.
     </p>
     <div class="hero-cta">
-      <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary btn-primary-lg" target="_blank" rel="noopener">
-        <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-        </svg>
-        Попробовать бесплатно
-      </a>
-      <span class="hero-note">Без регистрации — просто открой бота в Telegram</span>
+      <div class="hero-actions" aria-label="Способы примерки">
+        <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary btn-primary-lg" target="_blank" rel="noopener">
+          <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+          </svg>
+          в Телеграм
+        </a>
+        <a href="https://app.primerkakoles.ru/cabinet" class="btn btn-outline btn-primary-lg" target="_blank" rel="noopener">
+          <svg class="web-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M2 12h20"></path>
+            <path d="M12 2a15.3 15.3 0 0 1 0 20"></path>
+            <path d="M12 2a15.3 15.3 0 0 0 0 20"></path>
+          </svg>
+          Примерить на сайте
+        </a>
+        <button class="btn btn-disabled btn-primary-lg" type="button" disabled aria-disabled="true">
+          в Макс
+          <span class="btn-badge">скоро</span>
+        </button>
+      </div>
+      <span class="hero-note">Выбирай удобный формат: бот, веб-версия или скоро Макс</span>
     </div>
   </section>
 
@@ -1038,7 +1174,7 @@
           </div>
           <div class="step-content">
             <h3>Сфотографируй авто</h3>
-            <p>Отправь фотографию своего автомобиля прямо в чат Telegram-бота. Подойдёт обычное фото с телефона.</p>
+            <p>Загрузи фотографию автомобиля в Telegram-бот или веб-версию. Подойдёт обычное фото с телефона.</p>
           </div>
         </div>
 
@@ -1117,6 +1253,9 @@
 
       </div>
     </div>
+    <div class="gallery-more">
+      <a href="https://app.primerkakoles.ru/gallery" class="btn btn-outline" target="_blank" rel="noopener">Больше примеров</a>
+    </div>
   </section>
 
   <!-- Lightbox -->
@@ -1145,7 +1284,7 @@
           <div class="pricing-divider"></div>
           <div class="pricing-price">60 ₽</div>
           <div class="pricing-per">60 ₽ за примерку</div>
-          <a class="pricing-btn" href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">Попробовать</a>
+          <a class="pricing-btn" href="https://app.primerkakoles.ru/cabinet" target="_blank" rel="noopener">Попробовать</a>
         </div>
 
         <!-- 5 примерок — HOT -->
@@ -1158,7 +1297,7 @@
           <div class="pricing-price">199 ₽</div>
           <div class="pricing-per">40 ₽ за примерку</div>
           <div class="pricing-discount">Экономия 18%</div>
-          <a class="pricing-btn" href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">Выбрать пакет</a>
+          <a class="pricing-btn" href="https://app.primerkakoles.ru/cabinet" target="_blank" rel="noopener">Выбрать пакет</a>
         </div>
 
         <!-- 10 примерок -->
@@ -1170,7 +1309,7 @@
           <div class="pricing-price">349 ₽</div>
           <div class="pricing-per">35 ₽ за примерку</div>
           <div class="pricing-discount">Экономия 29%</div>
-          <a class="pricing-btn" href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">Выбрать пакет</a>
+          <a class="pricing-btn" href="https://app.primerkakoles.ru/cabinet" target="_blank" rel="noopener">Выбрать пакет</a>
         </div>
       </div>
 
@@ -1249,7 +1388,7 @@
           </div>
           <div class="flow-step">
             <div class="flow-step-num">3</div>
-            <p>Переходит по вашей ссылке в бота</p>
+            <p>Переходит по вашей ссылке в бот или веб-версию</p>
           </div>
           <div class="flow-step">
             <div class="flow-step-num">4</div>
@@ -1281,12 +1420,27 @@
     <p>
       Больше не нужно гадать, подойдут ли диски. Убедись визуально — это занимает меньше минуты.
     </p>
-    <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary btn-primary-lg" target="_blank" rel="noopener">
-      <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-      </svg>
-      Открыть бота в Telegram
-    </a>
+    <div class="cta-actions" aria-label="Способы примерки">
+      <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary btn-primary-lg" target="_blank" rel="noopener">
+        <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+        </svg>
+        в Телеграм
+      </a>
+      <a href="https://app.primerkakoles.ru/cabinet" class="btn btn-outline btn-primary-lg" target="_blank" rel="noopener">
+        <svg class="web-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M2 12h20"></path>
+          <path d="M12 2a15.3 15.3 0 0 1 0 20"></path>
+          <path d="M12 2a15.3 15.3 0 0 0 0 20"></path>
+        </svg>
+        Примерить на сайте
+      </a>
+      <button class="btn btn-disabled btn-primary-lg" type="button" disabled aria-disabled="true">
+        в Макс
+        <span class="btn-badge">скоро</span>
+      </button>
+    </div>
   </section>
 
   <!-- FOOTER -->
