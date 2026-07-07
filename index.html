@@ -218,28 +218,14 @@
       border-color: var(--accent);
     }
 
-    .btn-disabled {
-      position: relative;
-      background: #f3f4f6;
-      color: #9ca3af;
-      cursor: not-allowed;
-      box-shadow: none;
+    .btn-max {
+      background: #111827;
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(17, 24, 39, 0.14);
     }
 
-    .btn:disabled,
-    .btn[aria-disabled="true"] {
-      transform: none;
-    }
-
-    .btn-badge {
-      padding: 0.08rem 0.34rem;
-      border-radius: 999px;
-      background: #fff;
-      color: var(--accent-dark);
-      font-size: 0.62rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+    .btn-max:hover {
+      background: #374151;
     }
 
     .web-icon {
@@ -1030,6 +1016,163 @@
       text-decoration: underline;
     }
 
+    /* ── FLOATING LINK WIDGET ───────────────────── */
+    #pk-wrap,
+    #pk-wrap * {
+      box-sizing: border-box;
+    }
+
+    #pk-wrap {
+      position: fixed;
+      right: calc(18px + env(safe-area-inset-right));
+      bottom: calc(18px + env(safe-area-inset-bottom));
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: pk-appear 0.5s ease 0.8s forwards;
+    }
+
+    #pk-menu {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 190px;
+      padding: 8px;
+      background: #1a1a1a;
+      border-radius: 16px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(8px) scale(0.98);
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+    }
+
+    #pk-menu::after {
+      content: '';
+      position: absolute;
+      right: 26px;
+      bottom: -6px;
+      width: 12px;
+      height: 6px;
+      background: #1a1a1a;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+
+    #pk-wrap.pk-open #pk-menu,
+    #pk-wrap:focus-within #pk-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      #pk-wrap:hover #pk-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .pk-menu-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 42px;
+      padding: 10px 12px;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
+      white-space: nowrap;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+
+    .pk-menu-link:hover,
+    .pk-menu-link:focus-visible {
+      background: #2a2a2a;
+      outline: none;
+    }
+
+    .pk-menu-link::after {
+      content: '›';
+      color: #9ca3af;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    #pk-widget-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 58px;
+      background: #1a1a1a;
+      color: #ffffff;
+      border: none;
+      border-radius: 50px;
+      padding: 13px 18px 13px 13px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      line-height: 1;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    #pk-widget-btn:hover,
+    #pk-widget-btn:focus-visible,
+    #pk-wrap.pk-open #pk-widget-btn {
+      background: #2a2a2a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.32);
+      outline: none;
+    }
+
+    #pk-widget-btn:focus-visible {
+      box-shadow: 0 0 0 3px rgba(74,222,128,0.38), 0 8px 28px rgba(0,0,0,0.32);
+    }
+
+    #pk-widget-btn:active {
+      transform: translateY(0);
+    }
+
+    #pk-widget-icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+    }
+
+    #pk-widget-dot {
+      width: 8px;
+      height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pk-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pk-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.75); }
+    }
+
+    @keyframes pk-appear {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     /* ── ICONS ───────────────────────────────────── */
     .tg-icon {
       width: 1.2em;
@@ -1070,6 +1213,28 @@
         width: 100%;
       }
 
+      #pk-wrap {
+        right: calc(14px + env(safe-area-inset-right));
+        bottom: calc(14px + env(safe-area-inset-bottom));
+      }
+
+      #pk-widget-btn {
+        max-width: calc(100vw - 28px);
+        justify-content: flex-start;
+        gap: 8px;
+        padding: 12px 15px 12px 12px;
+        font-size: 13px;
+        border-radius: 50px;
+      }
+
+      #pk-widget-dot {
+        border: 2px solid #1a1a1a;
+      }
+
+      #pk-menu {
+        min-width: min(210px, calc(100vw - 28px));
+      }
+
       .flow-steps {
         flex-direction: column;
         align-items: center;
@@ -1081,6 +1246,22 @@
         position: static;
         display: block;
         margin-top: 0.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #pk-wrap,
+      #pk-menu,
+      #pk-widget-btn,
+      .pk-menu-link,
+      #pk-widget-dot {
+        animation: none;
+        transition: none;
+      }
+
+      #pk-wrap {
+        opacity: 1;
+        transform: none;
       }
     }
   </style>
@@ -1145,12 +1326,11 @@
           </svg>
           Примерить на сайте
         </a>
-        <button class="btn btn-disabled btn-primary-lg" type="button" disabled aria-disabled="true">
+        <a href="https://max.ru/id770201041579_bot" class="btn btn-max btn-primary-lg" target="_blank" rel="noopener">
           в Макс
-          <span class="btn-badge">скоро</span>
-        </button>
+        </a>
       </div>
-      <span class="hero-note">Выбирай удобный формат: бот, веб-версия или скоро Макс</span>
+      <span class="hero-note">Выбирай удобный формат: бот, веб-версия или Макс</span>
     </div>
   </section>
 
@@ -1448,10 +1628,9 @@
         </svg>
         Примерить на сайте
       </a>
-      <button class="btn btn-disabled btn-primary-lg" type="button" disabled aria-disabled="true">
+      <a href="https://max.ru/id770201041579_bot" class="btn btn-max btn-primary-lg" target="_blank" rel="noopener">
         в Макс
-        <span class="btn-badge">скоро</span>
-      </button>
+      </a>
     </div>
   </section>
 
@@ -1460,6 +1639,108 @@
     <p>© 2026 Примерка Колёс &nbsp;·&nbsp; <a href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">@Primerkakoles_bot</a></p>
     <p><a href="tel:+79250079994">+7 (925) 007-99-94</a> &nbsp;·&nbsp; <a href="mailto:info@primerkakoles.ru">info@primerkakoles.ru</a></p>
   </footer>
+
+  <script>
+    window.PK_LINK_SITE = 'https://app.primerkakoles.ru';
+    window.PK_LINK_MAX = 'https://max.ru/id770201041579_bot';
+    window.PK_LINK_TELEGRAM = 'https://t.me/Primerkakoles_bot';
+  </script>
+
+  <div id="pk-wrap">
+    <nav id="pk-menu" aria-label="Ссылки: Примерка дисков онлайн">
+      <a class="pk-menu-link" id="pk-link-site" href="#" target="_blank" rel="noopener noreferrer">На сайте</a>
+      <a class="pk-menu-link" id="pk-link-max" href="#" target="_blank" rel="noopener noreferrer">MAX</a>
+      <a class="pk-menu-link" id="pk-link-telegram" href="#" target="_blank" rel="noopener noreferrer">Telegram</a>
+    </nav>
+
+    <button id="pk-widget-btn"
+            type="button"
+            aria-label="Примерка дисков онлайн: открыть ссылки"
+            aria-haspopup="true"
+            aria-expanded="false"
+            aria-controls="pk-menu">
+      <svg id="pk-widget-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="16" cy="16" r="14.5" stroke="white" stroke-width="2.8"/>
+        <circle cx="16" cy="16" r="11" stroke="white" stroke-width="1.2" stroke-opacity="0.45"/>
+        <circle cx="16" cy="16" r="9.2" stroke="white" stroke-width="1.6"/>
+        <line x1="16" y1="13.4" x2="16" y2="6.8" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="16" y1="13.4" x2="16" y2="6.8" stroke="white" stroke-width="2.2" stroke-linecap="round" transform="rotate(72 16 16)"/>
+        <line x1="16" y1="13.4" x2="16" y2="6.8" stroke="white" stroke-width="2.2" stroke-linecap="round" transform="rotate(144 16 16)"/>
+        <line x1="16" y1="13.4" x2="16" y2="6.8" stroke="white" stroke-width="2.2" stroke-linecap="round" transform="rotate(216 16 16)"/>
+        <line x1="16" y1="13.4" x2="16" y2="6.8" stroke="white" stroke-width="2.2" stroke-linecap="round" transform="rotate(288 16 16)"/>
+        <circle cx="16" cy="16" r="3.2" fill="#1a1a1a" stroke="white" stroke-width="1.8"/>
+        <circle cx="16" cy="16" r="1.2" fill="white"/>
+      </svg>
+
+      <span id="pk-widget-label">Примерка дисков онлайн</span>
+      <span id="pk-widget-dot" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <script>
+    (function () {
+      var wrap = document.getElementById('pk-wrap');
+      var button = document.getElementById('pk-widget-btn');
+      var links = {
+        site: document.getElementById('pk-link-site'),
+        max: document.getElementById('pk-link-max'),
+        telegram: document.getElementById('pk-link-telegram')
+      };
+
+      if (!wrap || !button || !links.site || !links.max || !links.telegram) {
+        return;
+      }
+
+      links.site.href = window.PK_LINK_SITE || '#';
+      links.max.href = window.PK_LINK_MAX || '#';
+      links.telegram.href = window.PK_LINK_TELEGRAM || '#';
+
+      function isDesktopHover() {
+        return window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      }
+
+      function setOpen(isOpen) {
+        wrap.classList.toggle('pk-open', isOpen);
+        button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        setOpen(!wrap.classList.contains('pk-open'));
+      });
+
+      wrap.addEventListener('mouseenter', function () {
+        if (isDesktopHover()) {
+          setOpen(true);
+        }
+      });
+
+      wrap.addEventListener('mouseleave', function () {
+        if (isDesktopHover()) {
+          setOpen(false);
+        }
+      });
+
+      document.addEventListener('click', function (event) {
+        if (!wrap.contains(event.target)) {
+          setOpen(false);
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+          setOpen(false);
+          button.focus();
+        }
+      });
+
+      Object.keys(links).forEach(function (key) {
+        links[key].addEventListener('click', function () {
+          setOpen(false);
+        });
+      });
+    }());
+  </script>
 
   <script>
     // ── Gallery Carousel ──────────────────────────────────────────
