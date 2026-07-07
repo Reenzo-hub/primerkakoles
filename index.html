@@ -39,14 +39,14 @@
     }
 
     :root {
-      --accent: #b4532a;
-      --accent-dark: #8f3f1f;
-      --accent-soft: #f8f1ed;
-      --accent-line: #e5c7b8;
-      --text: #111827;
-      --muted: #6b7280;
+      --accent: #C1602A;
+      --accent-dark: #A34E20;
+      --accent-soft: #FBE9DD;
+      --accent-line: #C1602A;
+      --text: #1A2238;
+      --muted: #5C6270;
       --bg: #ffffff;
-      --bg-alt: #f3f4f6;
+      --bg-alt: #F7F5F3;
       --radius: 12px;
     }
 
@@ -122,19 +122,19 @@
     }
 
     .header-contacts a {
-      color: var(--muted);
+      color: var(--accent);
       text-decoration: none;
       white-space: nowrap;
       transition: color 0.2s;
     }
 
     .header-contacts a[href^="tel"] {
-      color: var(--text);
+      color: var(--accent);
       font-weight: 700;
     }
 
     .header-contacts a:hover {
-      color: var(--accent);
+      color: var(--accent-dark);
     }
 
     @media (max-width: 768px) {
@@ -192,13 +192,13 @@
     }
 
     .btn-primary {
-      background: #229ed9;
+      background: var(--accent);
       color: #fff;
-      box-shadow: 0 8px 18px rgba(34, 158, 217, 0.14);
+      box-shadow: 0 8px 18px rgba(193, 96, 42, 0.16);
     }
 
     .btn-primary:hover {
-      background: #1c8fc7;
+      background: var(--accent-dark);
     }
 
     .btn-primary-lg {
@@ -210,7 +210,8 @@
     .btn-outline {
       background: #fff;
       color: var(--accent);
-      border: 2px solid var(--accent-line);
+      border: 1.5px solid var(--accent-line);
+      box-shadow: none;
     }
 
     .btn-outline:hover {
@@ -219,13 +220,11 @@
     }
 
     .btn-max {
-      background: linear-gradient(135deg, #471aff 0%, #6e1aff 100%);
-      color: #fff;
-      box-shadow: 0 8px 18px rgba(71, 26, 255, 0.14);
+      box-shadow: none;
     }
 
-    .btn-max:hover {
-      background: linear-gradient(135deg, #3d14e4 0%, #6118e6 100%);
+    .btn-telegram .tg-icon {
+      color: #229ED9;
     }
 
     .web-icon {
@@ -825,8 +824,8 @@
 
     /* ── FOR BUSINESS ────────────────────────────── */
     .business {
-      background: #0f172a;
-      color: #f8fafc;
+      background: var(--text);
+      color: #ffffff;
       padding: 5rem 1.5rem;
     }
 
@@ -840,13 +839,13 @@
     }
 
     .business .section-title {
-      color: #f8fafc;
+      color: #ffffff;
       margin-bottom: 1rem;
     }
 
     .business-subtitle {
       text-align: center;
-      color: #94a3b8;
+      color: #FBE9DD;
       font-size: 1.05rem;
       max-width: 600px;
       margin: 0 auto 3rem;
@@ -860,10 +859,10 @@
     }
 
     .benefit-card {
-      background: #1e293b;
+      background: rgba(255,255,255,0.06);
       border-radius: var(--radius);
       padding: 1.75rem 1.5rem;
-      border: 1px solid #334155;
+      border: 1px solid rgba(251,233,221,0.18);
     }
 
     .benefit-icon {
@@ -874,22 +873,22 @@
     .benefit-card h3 {
       font-size: 1rem;
       font-weight: 700;
-      color: #f1f5f9;
+      color: #ffffff;
       margin-bottom: 0.5rem;
     }
 
     .benefit-card p {
       font-size: 0.9rem;
-      color: #94a3b8;
+      color: #FBE9DD;
       line-height: 1.6;
     }
 
     .business-flow {
-      background: #1e293b;
+      background: rgba(255,255,255,0.06);
       border-radius: 16px;
       padding: 2rem 1.5rem;
       margin-bottom: 2.5rem;
-      border: 1px solid #334155;
+      border: 1px solid rgba(251,233,221,0.18);
     }
 
     .business-flow-title {
@@ -923,7 +922,7 @@
       position: absolute;
       right: -0.6em;
       top: 0.6rem;
-      color: #475569;
+      color: var(--accent-soft);
       font-size: 1.2rem;
     }
 
@@ -943,14 +942,14 @@
 
     .flow-step p {
       font-size: 0.8rem;
-      color: #94a3b8;
+      color: #FBE9DD;
       line-height: 1.4;
       padding: 0 0.5rem;
     }
 
     .business-trial {
-      background: linear-gradient(135deg, #3b250f 0%, #1e293b 100%);
-      border: 1px solid rgba(180, 83, 42, 0.32);
+      background: rgba(251,233,221,0.08);
+      border: 1px solid rgba(251,233,221,0.2);
       border-radius: 16px;
       padding: 2rem 1.5rem;
       text-align: center;
@@ -959,12 +958,12 @@
     .business-trial h3 {
       font-size: 1.25rem;
       font-weight: 700;
-      color: #f1f5f9;
+      color: #ffffff;
       margin-bottom: 0.5rem;
     }
 
     .business-trial p {
-      color: #94a3b8;
+      color: #FBE9DD;
       font-size: 0.95rem;
       margin-bottom: 1.5rem;
     }
@@ -1050,7 +1049,7 @@
       flex-direction: column;
       min-width: 190px;
       padding: 8px;
-      background: #1a1a1a;
+      background: var(--text);
       border-radius: 16px;
       box-shadow: 0 8px 28px rgba(0,0,0,0.28);
       opacity: 0;
@@ -1067,7 +1066,7 @@
       bottom: -6px;
       width: 12px;
       height: 6px;
-      background: #1a1a1a;
+      background: var(--text);
       clip-path: polygon(0 0, 100% 0, 50% 100%);
     }
 
@@ -1107,13 +1106,13 @@
 
     .pk-menu-link:hover,
     .pk-menu-link:focus-visible {
-      background: #2a2a2a;
+      background: var(--accent-dark);
       outline: none;
     }
 
     .pk-menu-link::after {
       content: '›';
-      color: #9ca3af;
+      color: var(--accent-soft);
       font-size: 18px;
       line-height: 1;
     }
@@ -1124,7 +1123,7 @@
       align-items: center;
       gap: 10px;
       min-height: 58px;
-      background: #1a1a1a;
+      background: var(--text);
       color: #ffffff;
       border: none;
       border-radius: 50px;
@@ -1142,7 +1141,7 @@
     #pk-widget-btn:hover,
     #pk-widget-btn:focus-visible,
     #pk-wrap.pk-open #pk-widget-btn {
-      background: #2a2a2a;
+      background: var(--accent-dark);
       transform: translateY(-2px);
       box-shadow: 0 8px 28px rgba(0,0,0,0.32);
       outline: none;
@@ -1235,7 +1234,7 @@
       }
 
       #pk-widget-dot {
-        border: 2px solid #1a1a1a;
+        border: 2px solid var(--text);
       }
 
       #pk-menu {
@@ -1289,7 +1288,7 @@
       <a href="mailto:info@primerkakoles.ru">info@primerkakoles.ru</a>
     </div>
     <nav class="header-actions" aria-label="Основные действия">
-      <a href="https://app.primerkakoles.ru/cabinet" class="btn btn-outline" target="_blank" rel="noopener">
+      <a href="https://app.primerkakoles.ru/cabinet" class="btn btn-primary" target="_blank" rel="noopener">
         <svg class="web-icon" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="10"></circle>
           <path d="M2 12h20"></path>
@@ -1298,14 +1297,14 @@
         </svg>
         На сайте
       </a>
-      <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary" target="_blank" rel="noopener">
+      <a href="https://t.me/Primerkakoles_bot" class="btn btn-outline btn-telegram" target="_blank" rel="noopener">
         <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
         </svg>
         в Телеграм
       </a>
-      <a href="https://max.ru/id770201041579_bot" class="btn btn-max" target="_blank" rel="noopener">
-        <img class="max-icon" src="img/max-icon-white.svg" alt="" aria-hidden="true">
+      <a href="https://max.ru/id770201041579_bot" class="btn btn-outline btn-max" target="_blank" rel="noopener">
+        <img class="max-icon" src="img/max-icon-colored.svg" alt="" aria-hidden="true">
         в MAX
       </a>
       <a href="https://app.primerkakoles.ru/login" class="login-link" target="_blank" rel="noopener">Войти</a>
@@ -1314,7 +1313,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-badge">Работает в Telegram и на сайте</div>
+    <div class="hero-badge">Работает на любых устройствах</div>
     <h1>Примерь <em>любые диски</em><br>на своё авто</h1>
     <p>
       Загрузи фото автомобиля — ИИ покажет, как будут смотреться новые колёса,
@@ -1322,13 +1321,13 @@
     </p>
     <div class="hero-cta">
       <div class="hero-actions" aria-label="Способы примерки">
-        <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary btn-primary-lg" target="_blank" rel="noopener">
+        <a href="https://t.me/Primerkakoles_bot" class="btn btn-outline btn-telegram btn-primary-lg" target="_blank" rel="noopener">
           <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
           </svg>
           в Телеграм
         </a>
-        <a href="https://app.primerkakoles.ru/cabinet" class="btn btn-outline btn-primary-lg" target="_blank" rel="noopener">
+        <a href="https://app.primerkakoles.ru/cabinet" class="btn btn-primary btn-primary-lg" target="_blank" rel="noopener">
           <svg class="web-icon" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M2 12h20"></path>
@@ -1337,8 +1336,8 @@
           </svg>
           Примерить на сайте
         </a>
-        <a href="https://max.ru/id770201041579_bot" class="btn btn-max btn-primary-lg" target="_blank" rel="noopener">
-          <img class="max-icon" src="img/max-icon-white.svg" alt="" aria-hidden="true">
+        <a href="https://max.ru/id770201041579_bot" class="btn btn-outline btn-max btn-primary-lg" target="_blank" rel="noopener">
+          <img class="max-icon" src="img/max-icon-colored.svg" alt="" aria-hidden="true">
           в MAX
         </a>
       </div>
@@ -1625,13 +1624,13 @@
       Больше не нужно гадать, подойдут ли диски. Убедись визуально — это занимает меньше минуты.
     </p>
     <div class="cta-actions" aria-label="Способы примерки">
-      <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary btn-primary-lg" target="_blank" rel="noopener">
+      <a href="https://t.me/Primerkakoles_bot" class="btn btn-outline btn-telegram btn-primary-lg" target="_blank" rel="noopener">
         <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
         </svg>
         в Телеграм
       </a>
-      <a href="https://app.primerkakoles.ru/cabinet" class="btn btn-outline btn-primary-lg" target="_blank" rel="noopener">
+      <a href="https://app.primerkakoles.ru/cabinet" class="btn btn-primary btn-primary-lg" target="_blank" rel="noopener">
         <svg class="web-icon" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="10"></circle>
           <path d="M2 12h20"></path>
@@ -1640,8 +1639,8 @@
         </svg>
         Примерить на сайте
       </a>
-      <a href="https://max.ru/id770201041579_bot" class="btn btn-max btn-primary-lg" target="_blank" rel="noopener">
-        <img class="max-icon" src="img/max-icon-white.svg" alt="" aria-hidden="true">
+      <a href="https://max.ru/id770201041579_bot" class="btn btn-outline btn-max btn-primary-lg" target="_blank" rel="noopener">
+        <img class="max-icon" src="img/max-icon-colored.svg" alt="" aria-hidden="true">
         в MAX
       </a>
     </div>
@@ -1681,7 +1680,7 @@
         <line x1="16" y1="13.4" x2="16" y2="6.8" stroke="white" stroke-width="2.2" stroke-linecap="round" transform="rotate(144 16 16)"/>
         <line x1="16" y1="13.4" x2="16" y2="6.8" stroke="white" stroke-width="2.2" stroke-linecap="round" transform="rotate(216 16 16)"/>
         <line x1="16" y1="13.4" x2="16" y2="6.8" stroke="white" stroke-width="2.2" stroke-linecap="round" transform="rotate(288 16 16)"/>
-        <circle cx="16" cy="16" r="3.2" fill="#1a1a1a" stroke="white" stroke-width="1.8"/>
+        <circle cx="16" cy="16" r="3.2" fill="#1A2238" stroke="white" stroke-width="1.8"/>
         <circle cx="16" cy="16" r="1.2" fill="white"/>
       </svg>
 
