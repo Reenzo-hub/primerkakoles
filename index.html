@@ -115,32 +115,47 @@
       text-transform: uppercase;
     }
 
-    .header-contacts {
+    .header-brand {
       display: flex;
-      gap: 1.25rem;
-      font-size: 0.85rem;
+      align-items: center;
+      gap: 1.5rem;
     }
 
-    .header-contacts a {
-      color: var(--accent);
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .header-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.5rem;
+      padding: 0.55rem 0.85rem;
+      color: var(--text);
+      background: var(--bg-alt);
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      font-weight: 700;
       text-decoration: none;
       white-space: nowrap;
-      transition: color 0.2s;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
     }
 
-    .header-contacts a[href^="tel"] {
+    .header-link[href^="tel"] {
       color: var(--accent);
-      font-weight: 700;
     }
 
-    .header-contacts a:hover {
-      color: var(--accent-dark);
+    .header-link:hover {
+      color: var(--accent);
+      background: var(--accent-soft);
+      border-color: var(--accent-line);
     }
 
-    @media (max-width: 768px) {
-      .header-contacts {
-        display: none;
-      }
+    .header-link:focus-visible {
+      outline: 3px solid var(--accent-soft);
+      outline-offset: 2px;
     }
 
     .header-actions {
@@ -1193,6 +1208,11 @@
         flex-wrap: wrap;
       }
 
+      .header-brand {
+        width: 100%;
+        justify-content: space-between;
+      }
+
       .header-actions {
         width: 100%;
         justify-content: center;
@@ -1200,6 +1220,25 @@
     }
 
     @media (max-width: 480px) {
+      header {
+        padding: 0.85rem 1rem;
+      }
+
+      .header-brand {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .header-links {
+        width: 100%;
+      }
+
+      .header-link {
+        flex: 1;
+        justify-content: center;
+      }
+
       .hero {
         padding: 2.5rem 1.25rem 2rem;
       }
@@ -1276,16 +1315,18 @@
 
   <!-- HEADER -->
   <header>
-    <a href="#" class="logo">
-      <img class="logo-icon" src="img/logo.jpg" alt="" aria-hidden="true">
-      <span class="logo-text">
-        <span class="logo-top">Примерка</span>
-        <span class="logo-bottom">Колёс</span>
-      </span>
-    </a>
-    <div class="header-contacts">
-      <a href="tel:+79250079994">+7 (925) 007-99-94</a>
-      <a href="mailto:info@primerkakoles.ru">info@primerkakoles.ru</a>
+    <div class="header-brand">
+      <a href="#" class="logo">
+        <img class="logo-icon" src="img/logo.jpg" alt="" aria-hidden="true">
+        <span class="logo-text">
+          <span class="logo-top">Примерка</span>
+          <span class="logo-bottom">Колёс</span>
+        </span>
+      </a>
+      <nav class="header-links" aria-label="Контакты и партнёрам">
+        <a class="header-link" href="tel:+79250079994">+7 (925) 007-99-94</a>
+        <a class="header-link" href="partners.html">Для партнёров</a>
+      </nav>
     </div>
     <nav class="header-actions" aria-label="Основные действия">
       <a href="https://app.primerkakoles.ru/cabinet" class="btn btn-primary" target="_blank" rel="noopener">
@@ -1650,6 +1691,7 @@
   <footer>
     <p>© 2026 Примерка Колёс &nbsp;·&nbsp; <a href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">@Primerkakoles_bot</a></p>
     <p><a href="tel:+79250079994">+7 (925) 007-99-94</a> &nbsp;·&nbsp; <a href="mailto:info@primerkakoles.ru">info@primerkakoles.ru</a></p>
+    <p><a href="partners.html">Код для вставки на сайт</a></p>
   </footer>
 
   <script>
