@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Виджет для сайта — Примерка Колёс</title>
+  <meta name="description" content="Бесплатный виджет Примерки Колёс для сайта: инструкция и готовый код для установки.">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <style>
+    *,*::before,*::after{box-sizing:border-box}*{margin:0} :root{--accent:#c1602a;--accent-dark:#a34e20;--soft:#fbe9dd;--text:#1a2238;--muted:#5c6270;--line:#e5e7eb;--bg:#f7f5f3}html{scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--text);line-height:1.6;background:var(--bg)}a{color:inherit}header{background:#fff;border-bottom:1px solid var(--line)}.header-inner{max-width:1100px;margin:auto;padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}.logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.04em}.logo img{width:2.5rem;height:2.5rem;border-radius:50%;border:2px solid var(--accent);box-shadow:0 0 0 3px var(--soft)}.back{font-size:.9rem;font-weight:700;text-decoration:none}.back:hover{color:var(--accent)}main{max-width:960px;margin:auto;padding:3.5rem 1.25rem 5rem}.eyebrow{display:inline-block;padding:.3rem .85rem;border-radius:99px;color:var(--accent);background:var(--soft);font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em}h1{font-size:clamp(2rem,6vw,3.5rem);line-height:1.12;letter-spacing:-.03em;margin:1rem 0}.lead{max-width:680px;color:var(--muted);font-size:1.1rem}.layout{display:grid;grid-template-columns:280px 1fr;gap:1.5rem;margin-top:3rem}.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.5rem}.steps{display:grid;gap:1.5rem}.step{display:grid;grid-template-columns:2rem 1fr;gap:.75rem}.num{width:2rem;height:2rem;display:grid;place-items:center;border-radius:50%;background:var(--accent);color:#fff;font-weight:800}.step h2{font-size:1rem;margin:.2rem 0 .25rem}.step p{font-size:.88rem;color:var(--muted)}.code-card{min-width:0}.code-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1rem}.code-head h2{font-size:1.15rem}.copy{border:0;border-radius:9px;background:var(--accent);color:#fff;padding:.7rem 1rem;font:inherit;font-size:.85rem;font-weight:700;cursor:pointer}.copy:hover{background:var(--accent-dark)}.copy:focus-visible,.back:focus-visible{outline:3px solid var(--soft);outline-offset:3px}textarea{display:block;width:100%;height:510px;resize:vertical;border:0;border-radius:10px;padding:1rem;background:#121827;color:#e5e7eb;font:12px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;tab-size:2}.hint{margin-top:.85rem;color:var(--muted);font-size:.82rem}.support{margin-top:1.5rem;text-align:center;color:var(--muted);font-size:.9rem}.support a{color:var(--accent);font-weight:700}footer{text-align:center;border-top:1px solid var(--line);padding:1.5rem;color:var(--muted);font-size:.85rem;background:#fff}@media(max-width:720px){main{padding-top:2.5rem}.layout{grid-template-columns:1fr}.header-inner{padding:.8rem 1rem}.logo span{font-size:.9rem}.card{padding:1.1rem}.code-head{align-items:flex-start;flex-direction:column}.copy{width:100%}textarea{height:420px}}
+    .bonus{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.25rem;margin-top:2rem;padding:1.4rem 1.5rem;border:1px solid #edc6ae;border-radius:16px;background:linear-gradient(135deg,#fff 0%,var(--soft) 100%);box-shadow:0 10px 30px rgba(193,96,42,.08)}
+    .bonus-value{display:grid;place-items:center;width:4.5rem;height:4.5rem;border-radius:50%;background:var(--accent);color:#fff;font-size:1.65rem;font-weight:800;line-height:1;box-shadow:0 0 0 6px rgba(193,96,42,.12)}
+    .bonus h2{margin-bottom:.25rem;font-size:1.15rem}.bonus p{color:var(--muted);font-size:.92rem}.bonus-link{display:inline-flex;align-items:center;justify-content:center;min-height:2.75rem;padding:.65rem 1rem;border-radius:10px;background:var(--accent);color:#fff;font-size:.88rem;font-weight:700;text-decoration:none;white-space:nowrap}.bonus-link:hover{background:var(--accent-dark)}.bonus-link:focus-visible{outline:3px solid #fff;outline-offset:2px}
+    @media(max-width:720px){.bonus{grid-template-columns:auto 1fr}.bonus-link{grid-column:1/-1;width:100%}}@media(max-width:420px){.bonus{grid-template-columns:1fr;text-align:center}.bonus-value{margin:auto}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="logo" href="index.html"><img src="img/logo.jpg" alt=""><span>Примерка Колёс</span></a>
+      <a class="back" href="index.html">← На главную</a>
+    </div>
+  </header>
+  <main>
+    <span class="eyebrow">Для партнёров</span>
+    <h1>Добавьте примерку дисков на свой сайт</h1>
+    <p class="lead">Разместите компактную кнопку на сайте автосалона, шинного центра или магазина дисков. Посетители смогут открыть Примерку Колёс на сайте, в MAX или Telegram.</p>
+    <section class="bonus" aria-labelledby="bonus-title">
+      <div class="bonus-value" aria-hidden="true">+50</div>
+      <div>
+        <h2 id="bonus-title">50 примерок в подарок за установку виджета</h2>
+        <p>Установите виджет на своём сайте — мы начислим 50 бонусных примерок на ваш аккаунт, чтобы вы могли использовать сервис в работе с клиентами. После размещения напишите в поддержку, пришлите ссылку на сайт и укажите аккаунт для начисления бонуса.</p>
+      </div>
+      <a class="bonus-link" href="mailto:info@primerkakoles.ru?subject=Бонусные%2050%20примерок%20за%20установку%20виджета">Написать в поддержку</a>
+    </section>
+    <div class="layout">
+      <section class="card steps" aria-label="Инструкция по установке">
+        <div class="step"><span class="num">1</span><div><h2>Скопируйте код</h2><p>Нажмите кнопку — весь код виджета попадёт в буфер обмена.</p></div></div>
+        <div class="step"><span class="num">2</span><div><h2>Вставьте на сайт</h2><p>Добавьте код перед закрывающим тегом <code>&lt;/body&gt;</code> на нужных страницах.</p></div></div>
+        <div class="step"><span class="num">3</span><div><h2>Опубликуйте</h2><p>Виджет сразу готов к работе и адаптируется под мобильные устройства.</p></div></div>
+      </section>
+      <section class="card code-card">
+        <div class="code-head"><h2>Готовый код виджета</h2><button class="copy" id="copy" type="button">Скопировать код</button></div>
+        <textarea id="widget-code" readonly spellcheck="false" aria-label="Код виджета для вставки на сайт"><style>
+#pk-widget{position:fixed;right:18px;bottom:18px;z-index:99999;font:600 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+#pk-widget *{box-sizing:border-box}
+#pk-links{display:none;min-width:190px;margin:0 0 10px auto;padding:8px;background:#1a2238;border-radius:14px;box-shadow:0 8px 28px #0004}
+#pk-widget.open #pk-links,#pk-widget:focus-within #pk-links{display:block}
+#pk-links a{display:block;padding:10px 12px;border-radius:8px;color:#fff;text-decoration:none}
+#pk-links a:hover,#pk-links a:focus-visible{background:#a34e20;outline:0}
+#pk-button{display:flex;align-items:center;gap:9px;margin-left:auto;padding:12px 16px;border:0;border-radius:40px;background:#1a2238;color:#fff;font:inherit;box-shadow:0 4px 20px #0004;cursor:pointer}
+#pk-button:hover,#pk-button:focus-visible{background:#a34e20;outline:3px solid #fbe9dd}
+#pk-button svg{width:30px;height:30px}
+#pk-dot{width:8px;height:8px;border-radius:50%;background:#4ade80}
+@media(hover:hover){#pk-widget:hover #pk-links{display:block}}
+@media(max-width:480px){#pk-widget{right:14px;bottom:14px}#pk-button{font-size:13px}}
+</style>
+<div id="pk-widget">
+  <nav id="pk-links" aria-label="Примерка дисков онлайн">
+    <a href="https://app.primerkakoles.ru" target="_blank" rel="noopener">На сайте</a>
+    <a href="https://max.ru/id770201041579_bot" target="_blank" rel="noopener">MAX</a>
+    <a href="https://t.me/Primerkakoles_bot" target="_blank" rel="noopener">Telegram</a>
+  </nav>
+  <button id="pk-button" type="button" aria-expanded="false" aria-controls="pk-links">
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+      <circle cx="16" cy="16" r="14.5" stroke="white" stroke-width="2.8"/>
+      <circle cx="16" cy="16" r="11" stroke="white" stroke-width="1.2" stroke-opacity=".45"/>
+      <circle cx="16" cy="16" r="9.2" stroke="white" stroke-width="1.6"/>
+      <line x1="16" y1="13.4" x2="16" y2="6.8" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+      <line x1="16" y1="13.4" x2="16" y2="6.8" stroke="white" stroke-width="2.2" stroke-linecap="round" transform="rotate(72 16 16)"/>
+      <line x1="16" y1="13.4" x2="16" y2="6.8" stroke="white" stroke-width="2.2" stroke-linecap="round" transform="rotate(144 16 16)"/>
+      <line x1="16" y1="13.4" x2="16" y2="6.8" stroke="white" stroke-width="2.2" stroke-linecap="round" transform="rotate(216 16 16)"/>
+      <line x1="16" y1="13.4" x2="16" y2="6.8" stroke="white" stroke-width="2.2" stroke-linecap="round" transform="rotate(288 16 16)"/>
+      <circle cx="16" cy="16" r="3.2" fill="#1a2238" stroke="white" stroke-width="1.8"/>
+      <circle cx="16" cy="16" r="1.2" fill="white"/>
+    </svg>
+    <span>Примерка дисков онлайн</span><i id="pk-dot" aria-hidden="true"></i>
+  </button>
+</div>
+<script>
+(function(){
+  var widget=document.getElementById('pk-widget');
+  var button=document.getElementById('pk-button');
+  function close(){widget.classList.remove('open');button.setAttribute('aria-expanded','false')}
+  button.addEventListener('click',function(e){e.stopPropagation();var open=widget.classList.toggle('open');button.setAttribute('aria-expanded',open)});
+  document.addEventListener('click',function(e){if(!widget.contains(e.target))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+}());
+</script></textarea>
+        <p class="hint">Код не использует внешние библиотеки и не влияет на стили сайта.</p>
+      </section>
+    </div>
+    <p class="support">Нужна помощь с установкой? Напишите на <a href="mailto:info@primerkakoles.ru">info@primerkakoles.ru</a>.</p>
+  </main>
+  <footer>© 2026 Примерка Колёс</footer>
+  <script>
+    (function () {
+      var button = document.getElementById('copy');
+      var code = document.getElementById('widget-code');
+      button.addEventListener('click', function () {
+        function done() { button.textContent = 'Скопировано!'; setTimeout(function () { button.textContent = 'Скопировать код'; }, 1800); }
+        if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(code.value).then(done); return; }
+        code.select();
+        document.execCommand('copy');
+        done();
+      });
+    }());
+  </script>
+</body>
+</html>
