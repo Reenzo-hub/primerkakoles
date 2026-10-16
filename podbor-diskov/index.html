@@ -39,12 +39,13 @@
     .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex-shrink:0}.logo-icon{width:40px;height:40px;border-radius:50%;border:2px solid var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
     .logo-text{display:flex;flex-direction:column;line-height:1.15;text-transform:uppercase}.logo-top{font-size:.6rem;font-weight:600;letter-spacing:.16em;color:var(--muted)}.logo-bottom{font-size:1.3rem;font-weight:800;letter-spacing:.04em;color:var(--accent)}
     .header-nav{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}.header-nav a{font-size:.85rem;font-weight:700;text-decoration:none}.header-nav a:hover{color:var(--accent)}.header-nav [aria-current]{color:var(--accent)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;min-height:46px;padding:.75rem 1.2rem;border:1px solid transparent;border-radius:10px;background:var(--accent);color:#fff;font-size:.9rem;font-weight:700;line-height:1.4;text-align:center;text-decoration:none;transition:background .2s,transform .2s}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.7rem;min-height:46px;padding:.75rem 1.2rem;border:1px solid transparent;border-radius:10px;background:var(--accent);color:#fff;font-family:inherit;font-size:.9rem;font-weight:700;line-height:1.4;text-align:center;text-decoration:none;cursor:pointer;transition:background .2s,transform .2s}
     .btn:hover{background:var(--accent-dark)}.btn:active{transform:translateY(1px)}.btn-outline{color:var(--accent);border-color:var(--accent);background:#fff}.btn-outline:hover{background:var(--accent-soft)}.btn span[aria-hidden]{font-size:1.2em}
+    .contact-links{display:flex;align-items:center;flex-wrap:wrap;gap:.5rem .65rem;margin-top:.9rem;color:var(--muted);font-size:.8rem}.contact-links a{display:inline-flex;align-items:center;min-height:34px;padding:.35rem .7rem;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--accent-dark);font-weight:700;text-decoration:none}.contact-links a:hover{border-color:var(--accent);background:var(--accent-soft)}
     .eyebrow{color:var(--accent);font-size:.78rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase}.badge{display:inline-block;padding:.3rem .85rem;border-radius:100px;background:var(--accent-soft);color:var(--accent-dark);font-size:.8rem;font-weight:600}
     .hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:3rem;padding-block:64px 56px}
     h1{font-size:clamp(2.15rem,4vw,3.4rem);font-weight:800;line-height:1.13;letter-spacing:-.03em;margin:1.2rem 0}h1 em{font-style:normal;color:var(--accent)}
-    .lead{color:var(--muted);font-size:1.12rem;max-width:480px}.hero-note{color:var(--muted);font-size:.93rem;margin-top:.8rem}.hero .btn{margin-top:1.7rem;min-width:200px}.under-button{color:var(--muted);font-size:.76rem;margin-top:.65rem}
+    .lead{color:var(--muted);font-size:1.12rem;max-width:480px}.hero-note{color:var(--muted);font-size:.93rem;margin-top:.8rem}.hero .btn{margin-top:1.7rem;min-width:200px}
     .hero-visual{position:relative;overflow:hidden;border:1px solid #eee3dc;border-radius:20px;background:var(--bg-alt)}
     .visual-top{display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:1rem 1.25rem;font-size:.76rem;color:var(--muted)}.visual-top strong{color:var(--text)}.visual-top span:last-child{font-size:.65rem;letter-spacing:.08em;text-transform:uppercase}
     .car-art{width:100%;aspect-ratio:3/2;object-fit:cover}.visual-result{display:flex;align-items:center;gap:.85rem;margin:1rem;padding:.9rem 1rem;background:#fff;border:1px solid #eee3dc;border-radius:var(--radius)}.request-icon{display:grid;place-items:center;width:36px;height:36px;flex-shrink:0;border-radius:50%;background:var(--accent-soft);color:var(--accent-dark);font-size:1.3rem}.visual-result p{font-size:.82rem}.visual-result small{display:block;color:var(--muted);font-size:.73rem}
@@ -59,12 +60,15 @@
     .wheel-info{padding:1.35rem}.wheel-info h3{font-size:1.15rem}.wheel-kind{font-size:.78rem;color:var(--muted);margin-top:.2rem}.specs{color:var(--muted);font-size:.86rem;margin:1rem 0;line-height:1.8}.wheel-price{font-size:1.2rem;font-weight:800}.seller{font-size:.76rem;color:var(--muted);margin-top:.3rem}.compatible{font-size:.8rem;color:#356148;font-weight:600;margin:1rem 0}.offer{border-top:1px solid var(--line);padding-top:.75rem}.offer summary{color:var(--accent-dark);font-size:.85rem;font-weight:700;cursor:pointer;min-height:32px}.offer p{margin-top:.5rem;color:var(--muted);font-size:.8rem}.demo-note{font-size:.81rem;color:var(--muted);margin-top:1.3rem;max-width:760px}
     .tryon{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}.tryon-art{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}.tryon-art img{width:100%;aspect-ratio:3/2;object-fit:cover}.tryon-art figcaption{padding:.8rem 1rem;font-size:.75rem;color:var(--muted);text-align:center}.tryon-art figcaption span{font-size:.68rem}.tryon h2{margin:.6rem 0 1rem}.tryon p:not(.eyebrow){color:var(--muted)}.tryon .journey{justify-content:flex-start;padding:1rem 0;margin:1rem 0;border:0;font-size:.85rem;gap:.5rem .75rem}
     .faq-layout{display:grid;grid-template-columns:1fr 1.8fr;gap:4rem}.faq-layout h2{margin-top:.5rem}.faq details{border-bottom:1px solid var(--line)}.faq summary{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;list-style:none;padding:1.15rem 0;font-weight:700;font-size:.95rem}.faq summary::-webkit-details-marker{display:none}.faq summary::after{content:'+';font-size:1.4rem;color:var(--accent);font-weight:400;flex-shrink:0}.faq details[open] summary::after{content:'−'}.faq details p{font-size:.9rem;color:var(--muted);padding:0 1rem 1.2rem 0}
-    .guarantee{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:1.5rem}.guarantee-icon{display:grid;place-items:center;width:68px;height:68px;border-radius:18px;background:var(--accent-soft);color:var(--accent)}.guarantee-icon svg{width:36px;height:36px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.guarantee h2{margin:.4rem 0 .75rem}.guarantee p:last-child{max-width:760px;color:var(--muted);font-size:1.03rem}
+    .guarantee{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:1.5rem}.guarantee-icon{display:grid;place-items:center;width:68px;height:68px;border-radius:18px;background:var(--accent-soft);color:var(--accent)}.guarantee-icon svg{width:36px;height:36px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.guarantee h2{margin:.4rem 0 .75rem}.guarantee-copy{max-width:760px;color:var(--muted);font-size:1.03rem}.guarantee-detail{max-width:760px;color:var(--muted);font-size:.85rem;margin-top:.6rem}
     .final-section{padding-bottom:72px}.final-cta{border:1px solid #ecc6ae;border-radius:16px;background:var(--accent-soft);padding:3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem}.final-cta h2{font-size:clamp(1.5rem,3vw,2rem);max-width:650px}.final-cta p{color:var(--muted);margin-top:1rem;max-width:600px}.final-cta .btn{flex-shrink:0}
+    .final-actions{display:flex;flex-direction:column;align-items:flex-start}.final-actions .contact-links{justify-content:flex-start}
+    .lead-dialog{width:min(460px,calc(100% - 32px));max-height:calc(100dvh - 32px);margin:auto;border:0;border-radius:18px;box-shadow:0 24px 80px #1a22384d;overflow:auto;color:var(--text)}.lead-dialog::backdrop{background:#1a2238a6}.lead-dialog-inner{position:relative;padding:2rem}.lead-dialog h2{margin:.45rem 2rem .65rem 0}.lead-dialog-intro{color:var(--muted);font-size:.92rem}.lead-close{position:absolute;top:1rem;right:1rem;display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--muted);font-size:1.45rem;cursor:pointer}.lead-close:hover{color:var(--accent-dark);border-color:var(--accent)}.lead-form{display:grid;gap:.75rem;margin-top:1.5rem}.lead-form label{font-size:.86rem;font-weight:700}.lead-form input[type=tel]{width:100%;min-height:48px;padding:.75rem .9rem;border:1px solid #c9ccd3;border-radius:9px;background:#fff;color:var(--text);font:inherit}.lead-form input[type=tel]:focus{border-color:var(--accent)}.lead-form .btn{width:100%;margin-top:.3rem}.lead-form .btn:disabled{opacity:.7;cursor:wait}.lead-form .lead-consent{display:flex;align-items:flex-start;gap:.6rem;color:var(--muted);font-size:.75rem;font-weight:400}.lead-consent input{margin-top:.2rem;flex-shrink:0;accent-color:var(--accent)}.lead-consent a{color:var(--accent-dark)}.lead-honey{position:absolute;left:-9999px}.lead-status{min-height:1.4em;font-size:.83rem;color:var(--muted)}.lead-status[data-state=error]{color:#a32626}.lead-status[data-state=success]{color:#356148}.lead-dialog .contact-links{padding-top:1rem;border-top:1px solid var(--line)}
     footer{border-top:1px solid var(--line);padding:2rem 0;color:var(--muted);font-size:.82rem}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}.footer-links{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem}footer a{text-decoration:none}footer a:hover{color:var(--accent)}
     @media(max-width:1000px){.hero{gap:1.5rem}.header-nav{gap:1rem}.services{gap:.8rem}.service{padding:1.2rem}.tryon{gap:2rem}.faq-layout{gap:2rem}.final-cta{padding:2rem}}
     @media(max-width:800px){.header-inner{flex-wrap:wrap;gap:1rem}.header-nav{justify-content:flex-end;flex:1}.header-nav .phone{display:none}.hero{grid-template-columns:1fr;padding-block:40px;gap:2rem}.hero-copy{max-width:620px}.hero-visual{max-width:620px;width:100%;margin:auto}.services{grid-template-columns:1fr}.service{padding:1.5rem;display:grid;grid-template-columns:1fr 1fr;column-gap:1.5rem}.service-top,.service h3{grid-column:1/-1}.service h3{max-width:600px}.service-bottom{align-self:end}.steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}.steps li:nth-child(2)::after{content:none}.results{gap:.75rem}.wheel-info{padding:1rem}.wheel-image{height:230px;padding:3rem 1rem 1rem}.tryon{grid-template-columns:1fr 1fr}.faq-layout{grid-template-columns:1fr;gap:1.5rem}.final-cta{align-items:flex-start;flex-direction:column}.section{padding-block:52px}}
     @media(max-width:600px){html{scroll-padding-top:140px}.container{width:calc(100% - 32px)}.header-inner{gap:.8rem;padding-block:.85rem}.header-nav{gap:.25rem 1rem;justify-content:flex-start;flex-basis:100%}.header-nav a{font-size:.78rem;min-height:32px;display:inline-flex;align-items:center}.header-nav a:last-child{margin-left:auto}.hero{padding-top:30px}h1{font-size:2.25rem}.lead{font-size:1rem}.hero .btn{width:100%}.hero-visual{border-radius:16px}.visual-top{padding:.8rem 1rem}.visual-top{font-size:.7rem}.visual-result{gap:.6rem;padding:.7rem}.visual-result p{font-size:.72rem}.visual-result small{font-size:.66rem}.journey{gap:.4rem .65rem;font-size:.76rem;padding:1rem .25rem}.section{padding-block:42px}.section-head{margin-bottom:1.5rem}.service{display:flex;padding:1.35rem}.service h3{font-size:1.25rem}.service-top{margin-bottom:1rem}.service-bottom{align-self:stretch;width:100%}.steps{grid-template-columns:1fr;gap:1.75rem}.steps li{padding-left:58px}.steps li::before{position:absolute;left:0;top:0}.steps li:not(:last-child)::after{content:'↓';left:16px;top:auto;bottom:-27px;font-size:1rem}.results{grid-template-columns:1fr;gap:1rem}.wheel-image{height:260px;padding:3.2rem 1.25rem 1rem}.wheel-info{padding:1.25rem}.specs{margin:.7rem 0}.tryon{grid-template-columns:1fr;gap:1.5rem}.tryon .btn{width:100%}.tryon .journey{font-size:.8rem;gap:.4rem .55rem}.guarantee{grid-template-columns:1fr;gap:1rem}.guarantee-icon{width:56px;height:56px}.final-section{padding-bottom:42px}.final-cta{padding:1.5rem;gap:1.5rem}.final-cta .btn{width:100%}.footer-inner{align-items:flex-start;flex-direction:column}.footer-links{flex-direction:column;gap:.75rem}}
+    @media(max-width:600px){.final-actions{width:100%}.final-actions .contact-links span{flex-basis:100%}.lead-dialog-inner{padding:1.5rem}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
   </style>
 </head>
@@ -90,8 +94,8 @@
         <h1 id="hero-title">Подберём диски <em>для вашего автомобиля</em></h1>
         <p class="lead">Наш специалист вручную найдёт реальные варианты в продаже, проверит параметры и покажет, где их купить.</p>
         <p class="hero-note">А понравившиеся варианты можно сразу примерить на своём автомобиле.</p>
-        <a class="btn" data-order-link target="_blank" rel="noopener">Подобрать диски <span aria-hidden="true">↗</span></a>
-        <p class="under-button">Начните с сообщения в Telegram</p>
+        <button class="btn" type="button" data-request-open data-service="Подбор дисков">Оставить заявку <span aria-hidden="true">→</span></button>
+        <div class="contact-links"><span>Или напишите нам:</span><a href="https://t.me/primerkakoles" target="_blank" rel="noopener">Telegram</a><a href="https://max.ru/u/f9LHodD0cOKogeEFet2BBoHDJLYta3rwK1lCE38U2n_-TTwHc5v33QePgI0" target="_blank" rel="noopener">MAX</a></div>
       </div>
       <div class="hero-visual">
         <div class="visual-top"><strong>Ваш автомобиль. Ваш стиль.</strong><span>Подбор дисков</span></div>
@@ -115,21 +119,21 @@
               <p style="margin-top:.85rem">На выбор — подборка:</p><div class="packages" aria-label="Доступные объёмы подбора"><span>5 вариантов</span><span>10 вариантов</span><span>20 вариантов</span></div>
             </div>
             <p class="callout">Вам не нужно самостоятельно разбираться в PCD, ET, DIA и других параметрах — <strong>мы проверим совместимость.</strong></p>
-            <div class="service-bottom"><!-- Для добавления цены уберите hidden и заполните текст. --><p class="service-price" hidden></p><a class="btn" data-order-link target="_blank" rel="noopener">Заказать подбор <span aria-hidden="true">↗</span></a></div>
+            <div class="service-bottom"><!-- Для добавления цены уберите hidden и заполните текст. --><p class="service-price" hidden></p><button class="btn" type="button" data-request-open data-service="Подбор под автомобиль">Заказать подбор <span aria-hidden="true">→</span></button><div class="contact-links"><span>Написать:</span><a href="https://t.me/primerkakoles" target="_blank" rel="noopener">Telegram</a><a href="https://max.ru/u/f9LHodD0cOKogeEFet2BBoHDJLYta3rwK1lCE38U2n_-TTwHc5v33QePgI0" target="_blank" rel="noopener">MAX</a></div></div>
           </article>
           <article class="service">
             <div class="service-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="15.5" cy="9" r="1.5"/><path d="m3 17 6-6 5 5 3-3 4 4"/></svg></span><span class="service-number">02 / По фотографии</span></div>
             <h3>Понравились диски? Найдём такие же или похожие</h3>
             <div><p>Пришлите фото дисков и данные автомобиля. Проверим, выпускается ли этот дизайн в подходящих размерах и параметрах.</p><p style="margin-top:.85rem">Если точной модели нет, предложим похожий дизайн или изготовление кованых дисков на заказ.</p></div>
             <p class="callout"><strong>Не каждый дизайн выпускается во всех размерах.</strong>Например, дисков R22 или R23 с таким же дизайном может не быть в R16.</p>
-            <div class="service-bottom"><p class="service-price" hidden></p><a class="btn btn-outline" data-order-link target="_blank" rel="noopener">Найти по фотографии <span aria-hidden="true">↗</span></a></div>
+            <div class="service-bottom"><p class="service-price" hidden></p><button class="btn btn-outline" type="button" data-request-open data-service="Поиск дисков по фотографии">Найти по фотографии <span aria-hidden="true">→</span></button><div class="contact-links"><span>Написать:</span><a href="https://t.me/primerkakoles" target="_blank" rel="noopener">Telegram</a><a href="https://max.ru/u/f9LHodD0cOKogeEFet2BBoHDJLYta3rwK1lCE38U2n_-TTwHc5v33QePgI0" target="_blank" rel="noopener">MAX</a></div></div>
           </article>
           <article class="service">
             <div class="service-top"><span class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h11v12H3zM14 10h4l3 4v4h-7M3 10h11"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span><span class="service-number">03 / Покупка и доставка</span></div>
             <h3>Нашли диски? Поможем их купить</h3>
             <div><p>Возьмём на себя общение с продавцом и поможем с покупкой. В зависимости от продавца:</p><ul><li>поможем приобрести комплект;</li><li>выкупим диски;</li><li>организуем отправку;</li><li>или дадим прямую ссылку для самостоятельной покупки.</li></ul></div>
             <p class="callout">Формат покупки и доставки согласуем по конкретному предложению.</p>
-            <div class="service-bottom"><p class="service-price" hidden></p><a class="btn btn-outline" data-order-link target="_blank" rel="noopener">Помочь с покупкой <span aria-hidden="true">↗</span></a></div>
+            <div class="service-bottom"><p class="service-price" hidden></p><button class="btn btn-outline" type="button" data-request-open data-service="Помощь с покупкой и доставкой">Помочь с покупкой <span aria-hidden="true">→</span></button><div class="contact-links"><span>Написать:</span><a href="https://t.me/primerkakoles" target="_blank" rel="noopener">Telegram</a><a href="https://max.ru/u/f9LHodD0cOKogeEFet2BBoHDJLYta3rwK1lCE38U2n_-TTwHc5v33QePgI0" target="_blank" rel="noopener">MAX</a></div></div>
           </article>
         </div>
       </div>
@@ -191,26 +195,113 @@
     <section class="section section-alt" aria-labelledby="guarantee-title">
       <div class="container guarantee">
         <div class="guarantee-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 3 34 9v10c0 9-5.5 14.5-14 18C11.5 33.5 6 28 6 19V9L20 3Z"/><path d="m13.5 20 4.5 4.5 9-9"/></svg></div>
-        <div><p class="eyebrow">Можно выбирать спокойно</p><h2 id="guarantee-title">Гарантия подбора дисков</h2><p>Если подобранные нами диски не подойдут вашему автомобилю, мы заберём диски себе и вернём вам деньги за них.</p></div>
+        <div><p class="eyebrow">Можно выбирать спокойно</p><h2 id="guarantee-title">Гарантия подбора дисков</h2><p class="guarantee-copy">Если диски, подобранные нашим специалистом, не подойдут вашему автомобилю по техническим параметрам, мы заберём их и вернём вам деньги за диски.</p><p class="guarantee-detail">Если вы передумали насчёт дизайна, гарантия не действует.</p></div>
       </div>
     </section>
-    <section class="container final-section" aria-labelledby="final-title"><div class="final-cta"><div><h2 id="final-title">Не хотите самостоятельно искать подходящие диски?</h2><p>Расскажите, какой у вас автомобиль — мы найдём варианты за вас.</p></div><a class="btn" data-order-link target="_blank" rel="noopener">Начать подбор <span aria-hidden="true">↗</span></a></div></section>
+    <section class="container final-section" aria-labelledby="final-title"><div class="final-cta"><div><h2 id="final-title">Не хотите самостоятельно искать подходящие диски?</h2><p>Расскажите, какой у вас автомобиль — мы найдём варианты за вас.</p></div><div class="final-actions"><button class="btn" type="button" data-request-open data-service="Подбор дисков">Оставить заявку <span aria-hidden="true">→</span></button><div class="contact-links"><span>Или напишите нам:</span><a href="https://t.me/primerkakoles" target="_blank" rel="noopener">Telegram</a><a href="https://max.ru/u/f9LHodD0cOKogeEFet2BBoHDJLYta3rwK1lCE38U2n_-TTwHc5v33QePgI0" target="_blank" rel="noopener">MAX</a></div></div></div></section>
   </main>
-  <footer><div class="container footer-inner"><p>© 2026 Примерка Колёс</p><nav class="footer-links" aria-label="Контакты и ссылки"><a href="../">Примерка дисков</a><a href="../partners.html">Для партнёров</a><a href="tel:+79250079994">+7 (925) 007-99-94</a><a href="mailto:info@primerkakoles.ru">info@primerkakoles.ru</a></nav></div></footer>
+  <dialog class="lead-dialog" id="lead-dialog" aria-labelledby="lead-dialog-title" aria-describedby="lead-dialog-description">
+    <div class="lead-dialog-inner">
+      <button class="lead-close" type="button" data-request-close aria-label="Закрыть форму">×</button>
+      <p class="eyebrow">Заявка на подбор</p>
+      <h2 id="lead-dialog-title">Оставьте номер телефона</h2>
+      <p class="lead-dialog-intro" id="lead-dialog-description">Специалист свяжется с вами и уточнит пожелания по дискам.</p>
+      <form class="lead-form" id="lead-form" action="https://formsubmit.co/info@primerkakoles.ru" method="POST">
+        <input type="hidden" name="_subject" value="Новая заявка на подбор дисков">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="Услуга" id="lead-service" value="Подбор дисков">
+        <div class="lead-honey" aria-hidden="true"><label for="lead-honey">Оставьте это поле пустым</label><input id="lead-honey" name="_honey" tabindex="-1" autocomplete="off"></div>
+        <label for="lead-phone">Номер телефона</label>
+        <input id="lead-phone" name="Телефон" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (999) 123-45-67" maxlength="20" required>
+        <label class="lead-consent"><input type="checkbox" name="Согласие" value="Да" required><span>Согласен на обработку телефона и передачу его через FormSubmit для ответа на заявку. <a href="../privacy.html" target="_blank" rel="noopener">Политика обработки данных</a></span></label>
+        <button class="btn" type="submit">Отправить заявку</button>
+        <p class="lead-status" id="lead-status" role="status" aria-live="polite"></p>
+      </form>
+      <div class="contact-links"><span>Или напишите нам:</span><a href="https://t.me/primerkakoles" target="_blank" rel="noopener">Telegram</a><a href="https://max.ru/u/f9LHodD0cOKogeEFet2BBoHDJLYta3rwK1lCE38U2n_-TTwHc5v33QePgI0" target="_blank" rel="noopener">MAX</a></div>
+    </div>
+  </dialog>
+  <footer><div class="container footer-inner"><p>© 2026 Примерка Колёс</p><nav class="footer-links" aria-label="Контакты и ссылки"><a href="../">Примерка дисков</a><a href="../partners.html">Для партнёров</a><a href="../privacy.html">Политика обработки данных</a><a href="tel:+79250079994">+7 (925) 007-99-94</a><a href="mailto:info@primerkakoles.ru">info@primerkakoles.ru</a></nav></div></footer>
   <script>
-    // Единый адрес всех кнопок заказа. Для смены получателя измените только эту константу.
-    const ORDER_BOT_URL = 'https://t.me/Primerkakoles_bot';
-    document.querySelectorAll('[data-order-link]').forEach(function(link) {
-      link.href = ORDER_BOT_URL;
-    });
-    document.querySelectorAll('[data-order-link], [data-tryon-link]').forEach(function(link) {
-      link.addEventListener('click', function() {
+    const leadDialog = document.getElementById('lead-dialog');
+    const leadForm = document.getElementById('lead-form');
+    const leadPhone = document.getElementById('lead-phone');
+    const leadService = document.getElementById('lead-service');
+    const leadStatus = document.getElementById('lead-status');
+    const leadSubmit = leadForm.querySelector('[type="submit"]');
+    const LEAD_ENDPOINT = 'https://formsubmit.co/ajax/info@primerkakoles.ru';
+
+    document.querySelectorAll('[data-request-open]').forEach(function(button) {
+      button.addEventListener('click', function() {
+        leadService.value = button.dataset.service || 'Подбор дисков';
+        if (!leadDialog.open) leadDialog.showModal();
+        leadPhone.focus();
         if (typeof window.ym === 'function') {
-          window.ym(111891812, 'reachGoal', link.hasAttribute('data-order-link') ? 'wheel_selection_click' : 'tryon_web_click', {
-            placement: 'podbor-diskov', button: link.textContent.trim()
+          window.ym(111891812, 'reachGoal', 'wheel_selection_click', {
+            placement: 'podbor-diskov', button: button.textContent.trim(), service: leadService.value
           });
         }
       });
+    });
+
+    leadDialog.querySelector('[data-request-close]').addEventListener('click', function() {
+      leadDialog.close();
+    });
+    leadDialog.addEventListener('click', function(event) {
+      if (event.target === leadDialog) leadDialog.close();
+    });
+    leadDialog.addEventListener('close', function() {
+      leadStatus.textContent = '';
+      delete leadStatus.dataset.state;
+    });
+    leadPhone.addEventListener('input', function() {
+      leadPhone.setCustomValidity('');
+    });
+
+    leadForm.addEventListener('submit', async function(event) {
+      event.preventDefault();
+      const digits = leadPhone.value.replace(/\D/g, '');
+      if (digits.length < 10 || digits.length > 15) {
+        leadPhone.setCustomValidity('Проверьте номер телефона: нужно от 10 до 15 цифр.');
+        leadPhone.reportValidity();
+        return;
+      }
+      leadSubmit.disabled = true;
+      leadSubmit.textContent = 'Отправляем…';
+      leadStatus.textContent = '';
+      delete leadStatus.dataset.state;
+      try {
+        const response = await fetch(LEAD_ENDPOINT, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+          body: JSON.stringify(Object.fromEntries(new FormData(leadForm).entries()))
+        });
+        const result = await response.json();
+        if (!response.ok || (result.success !== true && result.success !== 'true')) throw new Error('Заявка не принята');
+        const service = leadService.value;
+        leadForm.reset();
+        leadStatus.dataset.state = 'success';
+        leadStatus.textContent = 'Заявка отправлена. Специалист свяжется с вами.';
+        if (typeof window.ym === 'function') {
+          window.ym(111891812, 'reachGoal', 'wheel_selection_submit', {
+            placement: 'podbor-diskov', service: service
+          });
+        }
+      } catch (error) {
+        leadStatus.dataset.state = 'error';
+        leadStatus.textContent = 'Не удалось отправить заявку. Напишите нам в Telegram или MAX.';
+      } finally {
+        leadSubmit.disabled = false;
+        leadSubmit.textContent = 'Отправить заявку';
+      }
+    });
+
+    document.querySelector('[data-tryon-link]').addEventListener('click', function() {
+      if (typeof window.ym === 'function') {
+        window.ym(111891812, 'reachGoal', 'tryon_web_click', {
+          placement: 'podbor-diskov', button: this.textContent.trim()
+        });
+      }
     });
   </script>
 </body>
