@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Примерка Колёс — примерка дисков онлайн на фото вашего авто</title>
-  <meta name="description" content="Примерка дисков онлайн с помощью ИИ в Telegram и на сайте. Загрузи фото авто — получи результат за 1 минуту. Как будут выглядеть новые диски на вашей машине? Узнай прямо сейчас!">
+  <meta name="description" content="Примерьте диски на фото своего автомобиля с помощью ИИ. Первая примерка бесплатно в Telegram и MAX; на сайте доступны пакеты примерок.">
   <meta name="keywords" content="примерка дисков онлайн, примерка колёс на авто, подобрать диски онлайн, как выглядят диски на машине, примерить колёса на фото, нейросеть примерка дисков, ИИ диски автомобиль, Telegram бот диски, веб примерка дисков">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Примерка Колёс">
-  <link rel="canonical" href="https://reenzo-hub.github.io/primerkakoles/">
+  <link rel="canonical" href="https://primerkakoles.ru/">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
   <link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
@@ -16,9 +16,9 @@
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://reenzo-hub.github.io/primerkakoles/">
+  <meta property="og:url" content="https://primerkakoles.ru/">
   <meta property="og:title" content="Примерка Колёс — примерка дисков онлайн на фото вашего авто">
-  <meta property="og:description" content="Загрузи фото авто в Telegram-бот или веб-версию и примерь любые диски с помощью ИИ. Результат за 1 минуту. Узнай, как будут выглядеть новые колёса!">
+  <meta property="og:description" content="Примерьте диски на своём автомобиле с помощью ИИ. Первая примерка бесплатно в Telegram и MAX.">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:site_name" content="Примерка Колёс">
   <meta property="og:image" content="https://drive.google.com/thumbnail?id=1bZeAz-6LuIPYjq7oi9FhJbhs0_sXho_y&sz=w1200">
@@ -29,7 +29,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Примерка Колёс — примерка дисков онлайн на фото вашего авто">
-  <meta name="twitter:description" content="Загрузи фото авто в Telegram-бот или веб-версию и примерь любые диски с помощью ИИ. Результат за 1 минуту.">
+  <meta name="twitter:description" content="Примерьте диски на своём автомобиле с помощью ИИ. Первая примерка бесплатно в Telegram и MAX.">
   <meta name="twitter:image" content="https://drive.google.com/thumbnail?id=1bZeAz-6LuIPYjq7oi9FhJbhs0_sXho_y&sz=w1200">
 
   <!-- Yandex.Metrika counter -->
@@ -440,83 +440,72 @@
       font-size: 0.95rem;
     }
 
-    /* ── GALLERY CAROUSEL ────────────────────────── */
+    /* ── EXAMPLE GALLERY ─────────────────────────── */
     .gallery {
-      padding: 4rem 0;
-      overflow: hidden;
+      padding: 5rem 1.5rem;
+      background: #fff;
     }
 
     .gallery-header {
-      padding: 0 1.5rem;
-      max-width: 1100px;
-      margin: 0 auto 1.5rem;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
       text-align: center;
     }
 
-    .gallery-nav {
-      display: none;
+    .gallery-header .section-title {
+      margin-bottom: 0.65rem;
     }
 
-    .gallery-track-wrap {
-      position: relative;
-      -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
-      mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+    .gallery-intro {
+      color: var(--muted);
+      font-size: 1rem;
     }
 
     .gallery-track {
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-      overflow: hidden;
+      width: min(100%, 1160px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
     }
 
     .gallery-more {
       display: flex;
       justify-content: center;
-      padding: 2rem 1.5rem 0;
-    }
-
-    .gallery-row {
-      display: flex;
-      gap: 0.55rem;
-      width: max-content;
-      will-change: transform;
-      padding: 0 1.5rem;
-      animation: galleryScrollLeft 36s linear infinite;
-    }
-
-    .gallery-row.reverse {
-      animation-name: galleryScrollRight;
-      animation-duration: 42s;
-    }
-
-    .gallery-row.fast {
-      animation-duration: 28s;
-    }
-
-    .gallery-row.slow {
-      animation-duration: 48s;
-    }
-
-    .gallery-row:hover {
-      animation-play-state: paused;
+      padding-top: 2.5rem;
     }
 
     .gallery-item {
-      border-radius: 10px;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      border-radius: 14px;
       overflow: hidden;
       background: var(--bg-alt);
-      flex: 0 0 clamp(120px, 17vw, 190px);
       aspect-ratio: 4 / 3;
-      position: relative;
       cursor: pointer;
-      box-shadow: 0 6px 14px rgba(17, 24, 39, 0.08);
+      box-shadow: 0 8px 24px rgba(26, 34, 56, 0.08);
+      transition: box-shadow 0.2s, transform 0.2s;
     }
 
-    @media (max-width: 640px) {
-      .gallery-track { gap: 0.45rem; }
-      .gallery-row { gap: 0.45rem; padding: 0 1rem; }
-      .gallery-item { flex: 0 0 clamp(108px, 29vw, 145px); }
+    .gallery-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(26, 34, 56, 0.13);
+    }
+
+    .gallery-item:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 540px) {
+      .gallery { padding: 3.5rem 1.25rem; }
+      .gallery-header { margin-bottom: 1.75rem; }
+      .gallery-track { grid-template-columns: 1fr; gap: 1rem; }
     }
 
     .gallery-item img {
@@ -524,37 +513,23 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-
-    @keyframes galleryScrollLeft {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    @keyframes galleryScrollRight {
-      0% { transform: translateX(-50%); }
-      100% { transform: translateX(0); }
     }
 
     /* Lightbox */
     .lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.88);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
+      border: 0;
+      margin: auto;
+      width: 100vw;
+      height: 100dvh;
+      max-width: none;
+      max-height: none;
+      background: rgba(0, 0, 0, 0.94);
       padding: 1.5rem;
     }
 
-    .lightbox.open {
-      display: flex;
+    .lightbox[open] {
+      display: grid;
+      place-items: center;
     }
 
     .lightbox img {
@@ -605,6 +580,11 @@
 
     .lightbox-arrow.prev { left: 1rem; }
     .lightbox-arrow.next { right: 1rem; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gallery-item { transition: none; }
+      .gallery-item:hover { transform: none; }
+    }
 
     /* ── PRICING ──────────────────────────────────── */
     .pricing {
@@ -1372,21 +1352,21 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-badge">Работает на любых устройствах</div>
-    <h1>Примерь <em>любые диски</em><br>на своё авто</h1>
+    <div class="hero-badge">Примерка дисков по фото автомобиля</div>
+    <h1>Примерь диски на своём авто — <em>первый раз бесплатно</em></h1>
     <p>
-      Загрузи фото автомобиля — ИИ покажет, как будут смотреться новые колёса,
-      прежде чем ты потратишь деньги на покупку.
+      Загрузи фото автомобиля и выбранных дисков. ИИ покажет результат,
+      чтобы ты мог оценить новый образ до покупки.
     </p>
     <div class="hero-cta">
       <div class="hero-actions" aria-label="Способы примерки">
-        <a href="https://t.me/Primerkakoles_bot" class="btn btn-outline btn-telegram btn-primary-lg" target="_blank" rel="noopener" data-ym-goal="tryon_telegram_click" data-ym-placement="hero">
+        <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary btn-primary-lg" target="_blank" rel="noopener" data-ym-goal="tryon_telegram_click" data-ym-placement="hero">
           <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
           </svg>
           в Телеграм
         </a>
-        <a href="https://app.primerkakoles.ru/cabinet" class="btn btn-primary btn-primary-lg" target="_blank" rel="noopener" data-ym-goal="tryon_web_click" data-ym-placement="hero">
+        <a href="https://app.primerkakoles.ru/cabinet" class="btn btn-outline btn-primary-lg" target="_blank" rel="noopener" data-ym-goal="tryon_web_click" data-ym-placement="hero">
           <svg class="web-icon" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="10"></circle>
             <path d="M2 12h20"></path>
@@ -1400,7 +1380,7 @@
           в MAX
         </a>
       </div>
-      <span class="hero-note">Выбирай удобный формат: бот, веб-версия или MAX</span>
+      <span class="hero-note">Бесплатная первая примерка доступна в Telegram и MAX.</span>
     </div>
   </section>
 
@@ -1450,83 +1430,38 @@
     </div>
   </section>
 
-  <!-- GALLERY CAROUSEL -->
-  <section id="gallery" class="gallery">
+  <!-- EXAMPLE GALLERY -->
+  <section id="gallery" class="gallery" aria-labelledby="gallery-title">
     <div class="gallery-header">
       <p class="section-label">Примеры работ</p>
-      <h2 class="section-title" style="margin-bottom:0">Примерка в реальном времени</h2>
+      <h2 class="section-title" id="gallery-title">Примерка в реальном времени</h2>
+      <p class="gallery-intro">Посмотрите, как диски выглядят на разных автомобилях. Нажмите на фото, чтобы рассмотреть результат.</p>
     </div>
-
-    <div class="gallery-track-wrap">
-      <div class="gallery-track" id="galleryTrack">
-
-        <!-- Row 1 -->
-        <div class="gallery-row fast" id="galleryRow1">
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1bZeAz-6LuIPYjq7oi9FhJbhs0_sXho_y&sz=w600" alt="Примерка дисков 1" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=11N7vatgeROzmhmTCRq3OCCn7yXeEVud2&sz=w600" alt="Примерка дисков 2" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1wzUC3GEwGs65MN0JQ4DMMZUjms3wkWaZ&sz=w600" alt="Примерка дисков 3" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1Z23VQqq7qvbjvtkR1eRAUlFUzrUA1nOJ&sz=w600" alt="Примерка дисков 4" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1d9kNlxiMm6FNMC6RsjcztO7KolCiVQAx&sz=w600" alt="Примерка дисков 5" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1NG03-DxU3O6N4LxHn7Wln09dDD6xldUV&sz=w600" alt="Примерка дисков 6" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1ek_gdWb2qaZ5KyUMHAd0AsHM2ZIoRjqI&sz=w600" alt="Примерка дисков 7" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1R90TET16k6mBg5izOgKI9ZPrJevsrFqW&sz=w600" alt="Примерка дисков 8" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1WG1bRBgL3s5sznY6X5PWSN-zfwUlOxmZ&sz=w600" alt="Примерка дисков 9" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1b3I8S6f1YtPWleSxpfiKgZCxtr43C1aj&sz=w600" alt="Примерка дисков 10" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=15ZDHrggZ95bZAVrLfr5vswAJmwNs7Ryq&sz=w600" alt="Примерка дисков 11" loading="lazy"></div>
-        </div>
-
-        <!-- Row 3 -->
-        <div class="gallery-row slow" id="galleryRow3">
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1bZeAz-6LuIPYjq7oi9FhJbhs0_sXho_y&sz=w600" alt="Примерка дисков 22" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=11N7vatgeROzmhmTCRq3OCCn7yXeEVud2&sz=w600" alt="Примерка дисков 23" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1wzUC3GEwGs65MN0JQ4DMMZUjms3wkWaZ&sz=w600" alt="Примерка дисков 24" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1Z23VQqq7qvbjvtkR1eRAUlFUzrUA1nOJ&sz=w600" alt="Примерка дисков 25" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1d9kNlxiMm6FNMC6RsjcztO7KolCiVQAx&sz=w600" alt="Примерка дисков 26" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1NG03-DxU3O6N4LxHn7Wln09dDD6xldUV&sz=w600" alt="Примерка дисков 27" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1ek_gdWb2qaZ5KyUMHAd0AsHM2ZIoRjqI&sz=w600" alt="Примерка дисков 28" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1R90TET16k6mBg5izOgKI9ZPrJevsrFqW&sz=w600" alt="Примерка дисков 29" loading="lazy"></div>
-        </div>
-
-        <!-- Row 2 -->
-        <div class="gallery-row reverse" id="galleryRow2">
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1KcF4zblX_7cXtnWxZNcn_bU-kZrIA0hn&sz=w600" alt="Примерка дисков 12" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1tKrtCjYztlfDAbhtM3Z3rdyZ39WyFkth&sz=w600" alt="Примерка дисков 13" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1hPuHpBi5L2CEc-s6pYQBftopb9-Fy6Gd&sz=w600" alt="Примерка дисков 14" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1YETUrIq2qtgMWI_miGMB5fNTRKjHx_R8&sz=w600" alt="Примерка дисков 15" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=11Fp1K3xnt31weCsdPt9_J_2ZF6hyFtqk&sz=w600" alt="Примерка дисков 16" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1ZfReuLt1a4SWhuHnKRw_S926XVOc0ELB&sz=w600" alt="Примерка дисков 17" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1ghdM2uRzjeCY9sNG4TTcXofGIYLFa03U&sz=w600" alt="Примерка дисков 18" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1aHCZZnRwzGioDSf9oAq7WjtE1hrnZWJS&sz=w600" alt="Примерка дисков 19" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1e3OTBh44v8a6t53wzM8EsPLTivjg_K3Z&sz=w600" alt="Примерка дисков 20" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1sqAM6MSqw32Lf3xAlGfbdIsNCf4VlB65&sz=w600" alt="Примерка дисков 21" loading="lazy"></div>
-        </div>
-
-        <!-- Row 4 -->
-        <div class="gallery-row reverse fast" id="galleryRow4">
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1KcF4zblX_7cXtnWxZNcn_bU-kZrIA0hn&sz=w600" alt="Примерка дисков 30" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1tKrtCjYztlfDAbhtM3Z3rdyZ39WyFkth&sz=w600" alt="Примерка дисков 31" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1hPuHpBi5L2CEc-s6pYQBftopb9-Fy6Gd&sz=w600" alt="Примерка дисков 32" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1YETUrIq2qtgMWI_miGMB5fNTRKjHx_R8&sz=w600" alt="Примерка дисков 33" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=11Fp1K3xnt31weCsdPt9_J_2ZF6hyFtqk&sz=w600" alt="Примерка дисков 34" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1ZfReuLt1a4SWhuHnKRw_S926XVOc0ELB&sz=w600" alt="Примерка дисков 35" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1ghdM2uRzjeCY9sNG4TTcXofGIYLFa03U&sz=w600" alt="Примерка дисков 36" loading="lazy"></div>
-          <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1aHCZZnRwzGioDSf9oAq7WjtE1hrnZWJS&sz=w600" alt="Примерка дисков 37" loading="lazy"></div>
-        </div>
-
-      </div>
+    <div class="gallery-track" id="galleryTrack">
+      <button class="gallery-item" type="button" aria-label="Открыть фото чёрного седана"><img src="https://drive.google.com/thumbnail?id=1bZeAz-6LuIPYjq7oi9FhJbhs0_sXho_y&sz=w600" alt="Чёрный седан с тёмными дисками после примерки" loading="lazy"></button>
+      <button class="gallery-item" type="button" aria-label="Открыть фото бежевого внедорожника"><img src="https://drive.google.com/thumbnail?id=1wzUC3GEwGs65MN0JQ4DMMZUjms3wkWaZ&sz=w600" alt="Бежевый внедорожник с чёрными дисками после примерки" loading="lazy"></button>
+      <button class="gallery-item" type="button" aria-label="Открыть фото оранжевого кроссовера"><img src="https://drive.google.com/thumbnail?id=1d9kNlxiMm6FNMC6RsjcztO7KolCiVQAx&sz=w600" alt="Оранжевый кроссовер со светлыми многоспицевыми дисками" loading="lazy"></button>
+      <button class="gallery-item" type="button" aria-label="Открыть фото чёрного кроссовера"><img src="https://drive.google.com/thumbnail?id=1ek_gdWb2qaZ5KyUMHAd0AsHM2ZIoRjqI&sz=w600" alt="Чёрный кроссовер со светлыми дисками в подземном паркинге" loading="lazy"></button>
+      <button class="gallery-item" type="button" aria-label="Открыть фото тёмно-синего внедорожника"><img src="https://drive.google.com/thumbnail?id=1WG1bRBgL3s5sznY6X5PWSN-zfwUlOxmZ&sz=w600" alt="Тёмно-синий внедорожник с чёрно-красными дисками" loading="lazy"></button>
+      <button class="gallery-item" type="button" aria-label="Открыть фото серого внедорожника со светлыми дисками"><img src="https://drive.google.com/thumbnail?id=15ZDHrggZ95bZAVrLfr5vswAJmwNs7Ryq&sz=w600" alt="Серый внедорожник со светлыми ажурными дисками" loading="lazy"></button>
+      <button class="gallery-item" type="button" aria-label="Открыть фото серого внедорожника с чёрными дисками"><img src="https://drive.google.com/thumbnail?id=1KcF4zblX_7cXtnWxZNcn_bU-kZrIA0hn&sz=w600" alt="Тот же серый внедорожник с чёрными дисками для сравнения" loading="lazy"></button>
+      <button class="gallery-item" type="button" aria-label="Открыть фото чёрного внедорожника"><img src="https://drive.google.com/thumbnail?id=1hPuHpBi5L2CEc-s6pYQBftopb9-Fy6Gd&sz=w600" alt="Чёрный внедорожник с тёмными дисками в гараже" loading="lazy"></button>
+      <button class="gallery-item" type="button" aria-label="Открыть фото чёрного минивэна"><img src="https://drive.google.com/thumbnail?id=11Fp1K3xnt31weCsdPt9_J_2ZF6hyFtqk&sz=w600" alt="Чёрный минивэн со светлыми дисками в ретростиле" loading="lazy"></button>
+      <button class="gallery-item" type="button" aria-label="Открыть фото белого седана"><img src="https://drive.google.com/thumbnail?id=1ghdM2uRzjeCY9sNG4TTcXofGIYLFa03U&sz=w600" alt="Белый седан с тёмными дисками под эстакадой" loading="lazy"></button>
+      <button class="gallery-item" type="button" aria-label="Открыть фото синего кроссовера"><img src="https://drive.google.com/thumbnail?id=1e3OTBh44v8a6t53wzM8EsPLTivjg_K3Z&sz=w600" alt="Синий кроссовер с двухцветными дисками" loading="lazy"></button>
+      <button class="gallery-item" type="button" aria-label="Открыть фото жёлтого хэтчбека"><img src="https://drive.google.com/thumbnail?id=1sqAM6MSqw32Lf3xAlGfbdIsNCf4VlB65&sz=w600" alt="Жёлтый хэтчбек с двухцветными дисками" loading="lazy"></button>
     </div>
     <div class="gallery-more">
       <a href="https://app.primerkakoles.ru/gallery" class="btn btn-outline" target="_blank" rel="noopener">Больше примеров</a>
     </div>
   </section>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">&times;</button>
-    <button class="lightbox-arrow prev" id="lightboxPrev" aria-label="Предыдущее">&#8592;</button>
-    <button class="lightbox-arrow next" id="lightboxNext" aria-label="Следующее">&#8594;</button>
+  <dialog class="lightbox" id="lightbox" aria-label="Увеличенный пример примерки">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Закрыть">&times;</button>
+    <button class="lightbox-arrow prev" id="lightboxPrev" type="button" aria-label="Предыдущее фото">&#8592;</button>
+    <button class="lightbox-arrow next" id="lightboxNext" type="button" aria-label="Следующее фото">&#8594;</button>
     <img id="lightboxImg" src="" alt="">
-  </div>
+  </dialog>
 
   <!-- PRICING -->
   <section class="pricing" id="pricing">
@@ -1665,7 +1600,7 @@
 
       <div class="business-trial">
         <h3>Попробуйте бесплатно</h3>
-        <p>Три пробных примерки без каких-либо обязательств — убедитесь сами, прежде чем подключать клиентов.</p>
+        <p>Одна пробная примерка без каких-либо обязательств — убедитесь сами, прежде чем подключать клиентов.</p>
         <a href="https://t.me/Primerkakoles_bot" class="btn btn-primary btn-primary-lg" target="_blank" rel="noopener" data-ym-goal="tryon_telegram_click" data-ym-placement="business_trial">
           <svg class="tg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
@@ -1844,53 +1779,35 @@
   </script>
 
   <script>
-    // ── Gallery Carousel ──────────────────────────────────────────
-    const galleryRows = Array.from(document.querySelectorAll('.gallery-row'));
-
-    function duplicateGalleryRows() {
-      galleryRows.forEach(row => {
-        const items = Array.from(row.children);
-        items.forEach(item => row.appendChild(item.cloneNode(true)));
-      });
-    }
-
-    duplicateGalleryRows();
-
     // ── Lightbox ──────────────────────────────────────────────────
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxClose = document.getElementById('lightboxClose');
     const lightboxPrev = document.getElementById('lightboxPrev');
     const lightboxNext = document.getElementById('lightboxNext');
-
-    let allImgs = [];
+    const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
     let currentIdx = 0;
 
     document.getElementById('galleryTrack').addEventListener('click', function(e) {
       const item = e.target.closest('.gallery-item');
       if (!item) return;
-      const img = item.querySelector('img');
-      if (!img) return;
-      allImgs = Array.from(document.querySelectorAll('.gallery-item img'));
-      currentIdx = allImgs.indexOf(img);
-      openLightbox(currentIdx);
+      openLightbox(galleryItems.indexOf(item));
     });
 
     function openLightbox(idx) {
-      const img = allImgs[idx];
+      const img = galleryItems[idx]?.querySelector('img');
       if (!img) return;
       lightboxImg.src = img.src;
       lightboxImg.alt = img.alt;
       currentIdx = idx;
       lightboxPrev.style.display = idx === 0 ? 'none' : '';
-      lightboxNext.style.display = idx === allImgs.length - 1 ? 'none' : '';
-      lightbox.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      lightboxNext.style.display = idx === galleryItems.length - 1 ? 'none' : '';
+      if (!lightbox.open) lightbox.showModal();
+      lightboxClose.focus();
     }
 
     function closeLightbox() {
-      lightbox.classList.remove('open');
-      document.body.style.overflow = '';
+      lightbox.close();
     }
 
     lightboxClose.addEventListener('click', closeLightbox);
@@ -1900,10 +1817,9 @@
       if (e.target === lightbox) closeLightbox();
     });
     document.addEventListener('keydown', function(e) {
-      if (!lightbox.classList.contains('open')) return;
-      if (e.key === 'Escape') closeLightbox();
+      if (!lightbox.open) return;
       if (e.key === 'ArrowLeft' && currentIdx > 0) openLightbox(currentIdx - 1);
-      if (e.key === 'ArrowRight' && currentIdx < allImgs.length - 1) openLightbox(currentIdx + 1);
+      if (e.key === 'ArrowRight' && currentIdx < galleryItems.length - 1) openLightbox(currentIdx + 1);
     });
   </script>
 
